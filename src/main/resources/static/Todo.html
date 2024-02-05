@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+<body>
+
+
+    <input type="text" id="content"/> <br/>
+    <input type="date" id="deadline"/> <br/>
+    <button type="button" onclick="onPost()"> 등록 </button>
+
+    <table>
+        <thead>
+            <tr> 
+                <th>번호</th>   <th>내용</th>
+                <th>마감일</th>    <th>상태</th>
+            </tr>
+        </thead>
+        <tbody id="todolist">
+            <tr>
+                <td>번호</td>   <th>내용</td>
+                <td>마감일</td>    <th>상태</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src='Todo.js'></script>
+    
+</body>
+</html>
+
