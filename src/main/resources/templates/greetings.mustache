@@ -1,18 +1,3 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <!--
-        HTML에서는 변수를 지원하지 않기 때문에 템플릿 사용.
-        머스테치 템플릿
-            문법
-                1. 변수 출력 : 중괄호 사용
-     -->
+{{>layouts/header}}
     <h1>{{username}}님, 반갑습니다!</h1>
-</body>
-</html>
+{{>layouts/footer}}

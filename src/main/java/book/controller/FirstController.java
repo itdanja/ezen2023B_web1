@@ -6,15 +6,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller // * 이 클래스가 컨트롤러임을 선언
 public class FirstController {
-    
-    @GetMapping("/hi")
+
+    @GetMapping("/hi") // http://localhost:80/hi
     public String niceToMeetYou(Model model){ // 인수에 model매개변수 선언,
         // 머스테치에 전달할 변수 등록.
         model.addAttribute( "username" , "유재석");
         // return "머스테치파일명";
         return "greetings";
         // 서버가 알아서 templates 폴더에서 파일을 찾아 브라우저에게 전송.
+    } // me
+
+    @GetMapping("/bye") // http://localhost:80/bye
+    public String seeYouNext( Model model ){
+        // 머스테치에 전달할 변수 등록
+        model.addAttribute("nickname","홍길동");
+        // return "머스테치파일명";
+        return "goodbye";
     }
+
+
+
+
     // http://localhost:80/greetings.mustache      [X] resources/templates
     // http://localhost:80/greetings.html          [X] resources/templates
     // http://localhost:80/hello.html              [O] resources/static
