@@ -1,3 +1,4 @@
+// --------------------- 라이브러리 자동 빌드 시스템 -------------------------- //
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.2'
@@ -15,10 +16,14 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web' // spring web
+dependencies { // 여기에 외부 라이브러리 설치 코드
+	// 1. spring web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'  // spring web test
-	runtimeOnly 'com.mysql:mysql-connector-j' // mysql 라이브러리
+	// 2.mysql 라이브러리
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	// 3.머스테치 : 화면 뷰
+	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 }
 
 tasks.named('test') {
