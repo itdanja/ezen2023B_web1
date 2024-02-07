@@ -4,8 +4,33 @@ console.log('todo.js실행');
 // { key : value , key : value } : 객체   vs  [ ] : 배열
 // 1. 할일등록 함수
 function doPost(){
+    console.log( 'doPost()' );
+    // 1. HTML입력받은 값 가져오기
+    let content = document.querySelector('#content').value;
+    let deadline = document.querySelector('#deadline').value;
+        console.log( content );
+        console.log( deadline );
+    // 2. 객체화(선택)
+    let info = {
+        content : content ,
+        deadline : deadline
+    }; console.log( info );
+    // 3. 컨트롤에게 요청 / 응답
+        // HTTP통신 : 어디에(action/url) 어떻게(method/method) 보낼데이터(name/data) 응답데이터(x/success)
+       $.ajax({
+            url : '/todo/post.do',
+            method : 'post',
+            data : info ,
+            success : function( result ){
+                console.log( result ); // 성공시 true / 실패면 false
+                if( result == true ){
+                    // 화면갱신// 4. 출력
+                    doGet();
+                }
+            }
+       }) // ajax end
+} // m e
 
-}
 // 2. 할일목록출력 함수
 doGet(); // JS 실행시 최초로 1번 실행.
 function doGet(){
