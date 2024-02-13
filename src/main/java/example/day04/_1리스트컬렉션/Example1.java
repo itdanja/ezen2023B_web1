@@ -1,6 +1,7 @@
 package example.day04._1리스트컬렉션;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Example1 {
@@ -15,13 +16,21 @@ public class Example1 {
         // 1. List
             // - 객체를 저장하면 인덱스가 부여되고 , 중복 가능
             // - ArrayList , Vector , LinkedList 클래스
+                // 동기화 : 여러 스레드가 하나의 함수를 동시에 호출했을때 호출순서대로 해당 함수를 끝날때까지 점유 상태
+                // ArrayList : [배열구조] 동기화 지원 X , 주로 단일스레드 사용
+                // Vector : [배열구조] 동기화 지원 O , 주로 멀티스레드 사용
+                // LinkedList : [연결구조] 동기화 지원 X ,
+                    // - 순차적인 삽입은 ArrayList 권장
+                    // - 빈번한 중간/특정위치 삽입 과 삭제는 LinkedList 권장.
+
             // - List 선언하는 방법
                 // E : 리스트저장하고싶은객체타입
                 // 1. List< E > list = new ArrayList<>();
                 // 2. List< E  > list = new ArrayList< E >();
                 // 3. List list = new ArrayList();
                 // 4. ArrayList< E > list = new ArrayList<>();
-            // 제공하는 함수
+
+            // 제공하는 함수/사용 방법
                 // 1. 리스트객체명.add( 객체 )            : 주어진 객체를 리스트내 맨 끝에 추가
                 // 2. 리스트객체명.add( 인덱스 , 객체 )    : 주어진 객체를 리스트내 주어진 인덱스에 추가 [ 기존 인덱스 객체 밀려남 ]
                 // 3. 리스트객체명.set( 인덱스 , 객체 )    : 주어진 객체를 리스트내 주어진 인덱스에 바꿈 [ 기존 인덱스 객체 사라짐 ]
@@ -32,6 +41,11 @@ public class Example1 {
                 // 8. 리스트객체명.remove( 객체 )          : 주어진 객체를 삭제
                 // 9. 리스트객체명.clear()                : 리스트내 저장된 모든 객체 삭제
                 // 10. 리스트객체명.isEmpty()             : 리스트가 비어 있는지 확인[T/F] 반환
+
+            // 순회
+                // 1. for( int i = 0 ; i < 리스트명.size() ; i++ ){  실행문;  }
+                // 2. for( 타입 반복변수명 : 리스트명 ){  실행문; }
+                // 3. 리스트명.forEach( 반복변수명 -> 실행문 );
 
         // 1. 리스트 컬렉션 생성
         List<Board> list = new ArrayList<>();
@@ -67,6 +81,33 @@ public class Example1 {
         boolean empty1 = list.isEmpty();
         System.out.println("empty1 = " + empty1);
 
+        // ============= 리스트 순회[ 처음부터 끝까지 조회 ] ============== //
+        // 1. 일반 for문
+        System.out.println("=== 일반 FOR문 리스트 순회 === ");
+
+        for( int i = 0 ; i < list.size() ; i++ ){   System.out.println( list.get(i) );   }
+
+        System.out.println("========");
+
+        // 2. 향상된 for문      for( 타입 반복변수명  : 리스트/배열객체 ) { } : 리스트내 순차적으로 하나씩 객체를 반복변수에 대입.
+        System.out.println("=== 향상된 FOR문 리스트 순회 === ");
+
+        for( Board b : list ){ System.out.println( b );    }
+
+        System.out.println("========");
+
+        // 3.
+            // 리스트명.forEach( 반복변수명 -> 실행문   )
+            // 리스트명.forEach( 반복변수명 -> {실행문; 실행문2;}   )
+        System.out.println("=== forEach 함수 리스트 순회 === ");
+
+        list.forEach( b  ->  System.out.println( b ) );
+
+        System.out.println("========");
+
+        // =========================== //
+
+
         // 7. 리스트내 모든 객체 삭제
         list.clear(  );
         System.out.println( list );
@@ -74,6 +115,31 @@ public class Example1 {
         // 8. 리스트내 비어 있는지 확인
         boolean empty2 = list.isEmpty();
         System.out.println("empty2 = " + empty2);
+
+        // 9. ArrayList 와 LinkedList 차이점
+            // 1. ArrayList
+        List<String> list1 = new ArrayList<>();
+            // 2. LinkedList
+        List<String> list2 = new LinkedList<>();
+            // 3. 시간체크를 위한 변수 선언
+        long startTime;
+        long endTime;
+            // ArrayList 에 10000개 객체 대입.
+            startTime = System.nanoTime();
+        for( int i = 0 ; i<10000; i++ ){
+            list1.add( 0 , i+"" );
+        }
+            endTime = System.nanoTime();
+        System.out.println("ArrayList 걸린시간 : " + ( endTime-startTime ) + "나노초" );
+
+        // LinkedList 에 10000개 객체 대입.
+        startTime = System.nanoTime();
+        for( int i = 0 ; i<10000; i++ ){
+            list2.add( 0 , i+"" );
+        }
+        endTime = System.nanoTime();
+        System.out.println("LinkedList 걸린시간 : " + ( endTime-startTime ) + "나노초" );
+
 
     }
 }
