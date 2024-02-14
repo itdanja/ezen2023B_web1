@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component // 스프링 컨테이너에 해당 클래스를 빈(객체) 등록
 public class ArticleDao {
@@ -62,8 +64,25 @@ public class ArticleDao {
         }catch (Exception e ){   System.out.println("e = " + e);    }
         return null;
     }
-
-
+    // ---------- ---------- ----------//
+    // 3. 개별 글 조회 : 매개변수 : x , 리턴타입 : ArrayList
+    public List<ArticleForm> index(){
+        List<ArticleForm> list = new ArrayList<>();
+        try{
+            String sql ="select * from article";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while ( rs.next() ){
+                ArticleForm form = new ArticleForm( // 1. 객체 만들기
+                        rs.getLong(1),
+                        rs.getString( 2 ),
+                        rs.getString( 3 )
+                );
+                list.add( form );  // 2. 객체를 리스트에 넣기
+            }
+        }catch (Exception e ){ System.out.println( e );  }
+        return list;
+    }
 }
 
 

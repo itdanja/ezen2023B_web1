@@ -1,17 +1,19 @@
-2024-02-07T14:27:55.346+09:00  INFO 13812 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 13812 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
-2024-02-07T14:27:55.349+09:00  INFO 13812 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-02-07T14:27:56.177+09:00  INFO 13812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
-2024-02-07T14:27:56.187+09:00  INFO 13812 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-07T14:27:56.188+09:00  INFO 13812 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-07T14:27:56.260+09:00  INFO 13812 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-07T14:27:56.260+09:00  INFO 13812 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 868 ms
-2024-02-07T14:27:56.885+09:00  INFO 13812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
-2024-02-07T14:27:56.896+09:00  INFO 13812 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.931 seconds (process running for 2.205)
-2024-02-07T14:29:05.005+09:00  INFO 13812 --- [http-nio-80-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-07T14:29:05.006+09:00  INFO 13812 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-02-07T14:29:05.007+09:00  INFO 13812 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-02-07T14:29:06.953+09:00  INFO 13812 --- [http-nio-80-exec-1] book.controller.ArticleController        : ArticleForm(title=123, content=123)
-2024-02-07T14:29:06.975+09:00 ERROR 13812 --- [http-nio-80-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean] with root cause
+2024-02-14T15:21:27.162+09:00  INFO 15856 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 15856 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:21:27.169+09:00  INFO 15856 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:21:28.120+09:00  INFO 15856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:21:28.137+09:00  INFO 15856 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:21:28.138+09:00  INFO 15856 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:21:28.206+09:00  INFO 15856 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:21:28.207+09:00  INFO 15856 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 985 ms
+2024-02-14T15:21:28.810+09:00  INFO 15856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:21:28.818+09:00  INFO 15856 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 2.035 seconds (process running for 2.311)
+2024-02-14T15:21:42.912+09:00  INFO 15856 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:21:42.913+09:00  INFO 15856 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:21:42.914+09:00  INFO 15856 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T15:22:22.067+09:00  WARN 15856 --- [http-nio-80-exec-3] book.controller.ArticleController        : ArticleForm(title=가나다라, content=1111)
+2024-02-14T15:22:22.067+09:00 ERROR 15856 --- [http-nio-80-exec-3] book.controller.ArticleController        : ArticleForm(title=가나다라, content=1111)
+2024-02-14T15:22:22.067+09:00  INFO 15856 --- [http-nio-80-exec-3] book.controller.ArticleController        : ArticleForm(title=가나다라, content=1111)
+2024-02-14T15:22:22.087+09:00 ERROR 15856 --- [http-nio-80-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean] with root cause
 
 java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean
 	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:76) ~[spring-web-6.1.3.jar:6.1.3]
@@ -60,227 +62,301 @@ java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
 
-2024-02-07T14:31:16.175+09:00  INFO 15740 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 15740 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
-2024-02-07T14:31:16.178+09:00  INFO 15740 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-02-07T14:31:16.999+09:00  INFO 15740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
-2024-02-07T14:31:17.012+09:00  INFO 15740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-07T14:31:17.012+09:00  INFO 15740 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-07T14:31:17.072+09:00  INFO 15740 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-07T14:31:17.072+09:00  INFO 15740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 850 ms
-2024-02-07T14:31:17.659+09:00  INFO 15740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
-2024-02-07T14:31:17.666+09:00  INFO 15740 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.843 seconds (process running for 2.13)
-2024-02-07T14:31:33.154+09:00  INFO 15740 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-07T14:31:33.154+09:00  INFO 15740 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-02-07T14:31:33.155+09:00  INFO 15740 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-02-07T14:31:34.338+09:00  INFO 15740 --- [http-nio-80-exec-4] book.controller.ArticleController        : ArticleForm(title=123, content=123)
-2024-02-07T14:31:34.360+09:00 ERROR 15740 --- [http-nio-80-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean] with root cause
+2024-02-14T15:35:49.077+09:00  INFO 14964 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 14964 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:35:49.079+09:00  INFO 14964 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:35:49.883+09:00  INFO 14964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:35:49.893+09:00  INFO 14964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:35:49.893+09:00  INFO 14964 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:35:49.947+09:00  INFO 14964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:35:49.948+09:00  INFO 14964 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 830 ms
+2024-02-14T15:35:50.333+09:00  WARN 14964 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invalid mapping on handler class [book.controller.ArticleController]: public java.lang.String book.controller.ArticleController.show(java.lang.Long)
+2024-02-14T15:35:50.335+09:00  INFO 14964 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-02-14T15:35:50.343+09:00  INFO 14964 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
 
-java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:76) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-02-14T15:35:50.365+09:00 ERROR 14964 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-2024-02-07T14:32:49.160+09:00  INFO 10888 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 10888 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
-2024-02-07T14:32:49.162+09:00  INFO 10888 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
-2024-02-07T14:32:49.955+09:00  INFO 10888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
-2024-02-07T14:32:49.964+09:00  INFO 10888 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-07T14:32:49.965+09:00  INFO 10888 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-07T14:32:50.020+09:00  INFO 10888 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-07T14:32:50.020+09:00  INFO 10888 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 818 ms
-2024-02-07T14:32:50.577+09:00  INFO 10888 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
-2024-02-07T14:32:50.584+09:00  INFO 10888 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.79 seconds (process running for 2.036)
-2024-02-07T14:33:27.399+09:00  INFO 10888 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-07T14:33:27.399+09:00  INFO 10888 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-02-07T14:33:27.399+09:00  INFO 10888 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2024-02-07T14:33:30.035+09:00  WARN 10888 --- [http-nio-80-exec-8] book.controller.ArticleController        : ArticleForm(title=123, content=123)
-2024-02-07T14:33:30.035+09:00 ERROR 10888 --- [http-nio-80-exec-8] book.controller.ArticleController        : ArticleForm(title=123, content=123)
-2024-02-07T14:33:30.035+09:00  INFO 10888 --- [http-nio-80-exec-8] book.controller.ArticleController        : ArticleForm(title=123, content=123)
-2024-02-07T14:33:30.055+09:00 ERROR 10888 --- [http-nio-80-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean] with root cause
+***************************
+APPLICATION FAILED TO START
+***************************
 
-java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:76) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Description:
 
-2024-02-07T14:36:24.244+09:00 ERROR 12644 --- [http-nio-80-exec-6] book.controller.ArticleController        : ArticleForm(title=123, content=123)
-2024-02-07T14:36:24.269+09:00 ERROR 12644 --- [http-nio-80-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean] with root cause
+Invalid mapping pattern detected:
+/articles/{ 매개변수명 }
+           ^
+Char ' ' not allowed at start of captured variable name
 
-java.lang.IllegalArgumentException: Unknown return value type: java.lang.Boolean
-	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:76) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.3.jar:6.1.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.18.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.3.jar:6.1.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.18.jar:10.1.18]
-	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Action:
 
-2024-02-07T15:01:07.810+09:00  INFO 14292 --- [main] example.day03.webMvc.AppStart            : Starting AppStart using Java 17.0.9 with PID 14292 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
-2024-02-07T15:01:07.812+09:00  INFO 14292 --- [main] example.day03.webMvc.AppStart            : No active profile set, falling back to 1 default profile: "default"
-2024-02-07T15:01:08.720+09:00  INFO 14292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
-2024-02-07T15:01:08.729+09:00  INFO 14292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-07T15:01:08.729+09:00  INFO 14292 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-07T15:01:08.788+09:00  INFO 14292 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-07T15:01:08.789+09:00  INFO 14292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 937 ms
-2024-02-07T15:01:09.448+09:00  INFO 14292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
-2024-02-07T15:01:09.455+09:00  INFO 14292 --- [main] example.day03.webMvc.AppStart            : Started AppStart in 2.035 seconds (process running for 2.329)
-2024-02-07T15:01:18.570+09:00  INFO 14292 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-07T15:01:18.570+09:00  INFO 14292 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-02-07T15:01:18.571+09:00  INFO 14292 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-02-07T15:05:29.475+09:00  INFO 15920 --- [main] example.day03.webMvc.AppStart            : Starting AppStart using Java 17.0.9 with PID 15920 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
-2024-02-07T15:05:29.477+09:00  INFO 15920 --- [main] example.day03.webMvc.AppStart            : No active profile set, falling back to 1 default profile: "default"
-2024-02-07T15:05:30.298+09:00  INFO 15920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
-2024-02-07T15:05:30.307+09:00  INFO 15920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-07T15:05:30.308+09:00  INFO 15920 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-07T15:05:30.360+09:00  INFO 15920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-07T15:05:30.361+09:00  INFO 15920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 844 ms
-2024-02-07T15:05:30.923+09:00  INFO 15920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
-2024-02-07T15:05:30.930+09:00  INFO 15920 --- [main] example.day03.webMvc.AppStart            : Started AppStart in 1.826 seconds (process running for 2.125)
-2024-02-07T15:05:47.926+09:00  INFO 15920 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-07T15:05:47.926+09:00  INFO 15920 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-02-07T15:05:47.927+09:00  INFO 15920 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-02-07T15:11:12.978+09:00  INFO 10840 --- [main] example.day03.webMvc.AppStart            : Starting AppStart using Java 17.0.9 with PID 10840 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
-2024-02-07T15:11:12.981+09:00  INFO 10840 --- [main] example.day03.webMvc.AppStart            : No active profile set, falling back to 1 default profile: "default"
-2024-02-07T15:11:13.829+09:00  INFO 10840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
-2024-02-07T15:11:13.841+09:00  INFO 10840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-07T15:11:13.841+09:00  INFO 10840 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-07T15:11:13.911+09:00  INFO 10840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-07T15:11:13.912+09:00  INFO 10840 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 892 ms
-2024-02-07T15:11:14.493+09:00  INFO 10840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
-2024-02-07T15:11:14.502+09:00  INFO 10840 --- [main] example.day03.webMvc.AppStart            : Started AppStart in 1.963 seconds (process running for 2.243)
-2024-02-07T15:11:27.073+09:00  INFO 10840 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-07T15:11:27.073+09:00  INFO 10840 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-02-07T15:11:27.074+09:00  INFO 10840 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-02-07T15:12:46.405+09:00  INFO 5292 --- [main] example.day03.webMvc.AppStart            : Starting AppStart using Java 17.0.9 with PID 5292 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
-2024-02-07T15:12:46.408+09:00  INFO 5292 --- [main] example.day03.webMvc.AppStart            : No active profile set, falling back to 1 default profile: "default"
-2024-02-07T15:12:47.237+09:00  INFO 5292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
-2024-02-07T15:12:47.247+09:00  INFO 5292 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-07T15:12:47.248+09:00  INFO 5292 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-07T15:12:47.303+09:00  INFO 5292 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-07T15:12:47.304+09:00  INFO 5292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 852 ms
-2024-02-07T15:12:47.862+09:00  INFO 5292 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
-2024-02-07T15:12:47.870+09:00  INFO 5292 --- [main] example.day03.webMvc.AppStart            : Started AppStart in 1.844 seconds (process running for 2.116)
-2024-02-07T15:12:50.546+09:00  INFO 5292 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-07T15:12:50.547+09:00  INFO 5292 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-02-07T15:12:50.548+09:00  INFO 5292 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Fix this pattern in your application or switch to the legacy parser implementation with 'spring.mvc.pathmatch.matching-strategy=ant_path_matcher'.
+
+2024-02-14T15:36:09.424+09:00  INFO 14600 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 14600 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:36:09.427+09:00  INFO 14600 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:36:10.239+09:00  INFO 14600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:36:10.254+09:00  INFO 14600 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:36:10.255+09:00  INFO 14600 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:36:10.308+09:00  INFO 14600 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:36:10.309+09:00  INFO 14600 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 837 ms
+2024-02-14T15:36:10.909+09:00  INFO 14600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:36:10.916+09:00  INFO 14600 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.86 seconds (process running for 2.122)
+2024-02-14T15:36:15.643+09:00  INFO 14600 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:36:15.644+09:00  INFO 14600 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:36:15.646+09:00  INFO 14600 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-02-14T15:36:55.927+09:00  INFO 9136 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 9136 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:36:55.930+09:00  INFO 9136 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:36:56.738+09:00  INFO 9136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:36:56.748+09:00  INFO 9136 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:36:56.748+09:00  INFO 9136 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:36:56.809+09:00  INFO 9136 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:36:56.810+09:00  INFO 9136 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 839 ms
+2024-02-14T15:36:57.377+09:00  INFO 9136 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:36:57.386+09:00  INFO 9136 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.849 seconds (process running for 2.115)
+2024-02-14T15:36:59.502+09:00  INFO 9136 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:36:59.502+09:00  INFO 9136 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:36:59.503+09:00  INFO 9136 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T15:37:09.988+09:00  INFO 5524 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 5524 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:37:09.991+09:00  INFO 5524 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:37:10.801+09:00  INFO 5524 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:37:10.813+09:00  INFO 5524 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:37:10.814+09:00  INFO 5524 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:37:10.871+09:00  INFO 5524 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:37:10.871+09:00  INFO 5524 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 828 ms
+2024-02-14T15:37:11.402+09:00  INFO 5524 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:37:11.409+09:00  INFO 5524 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.834 seconds (process running for 2.094)
+2024-02-14T15:37:15.069+09:00  INFO 5524 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:37:15.069+09:00  INFO 5524 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:37:15.070+09:00  INFO 5524 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-02-14T15:37:41.821+09:00  INFO 14928 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 14928 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:37:41.823+09:00  INFO 14928 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:37:42.682+09:00  INFO 14928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:37:42.693+09:00  INFO 14928 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:37:42.693+09:00  INFO 14928 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:37:42.755+09:00  INFO 14928 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:37:42.756+09:00  INFO 14928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 892 ms
+2024-02-14T15:37:43.386+09:00  INFO 14928 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:37:43.399+09:00  INFO 14928 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.969 seconds (process running for 2.239)
+2024-02-14T15:37:46.401+09:00  INFO 14928 --- [http-nio-80-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:37:46.402+09:00  INFO 14928 --- [http-nio-80-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:37:46.403+09:00  INFO 14928 --- [http-nio-80-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T15:37:56.557+09:00  INFO 9324 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 9324 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:37:56.560+09:00  INFO 9324 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:37:57.358+09:00  INFO 9324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:37:57.368+09:00  INFO 9324 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:37:57.369+09:00  INFO 9324 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:37:57.423+09:00  INFO 9324 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:37:57.424+09:00  INFO 9324 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 820 ms
+2024-02-14T15:37:57.951+09:00  INFO 9324 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:37:57.959+09:00  INFO 9324 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.765 seconds (process running for 2.026)
+2024-02-14T15:38:03.830+09:00  INFO 9324 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:38:03.830+09:00  INFO 9324 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:38:03.831+09:00  INFO 9324 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-02-14T15:38:09.951+09:00  INFO 3500 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 3500 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:38:09.954+09:00  INFO 3500 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:38:10.894+09:00  INFO 3500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:38:10.907+09:00  INFO 3500 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:38:10.908+09:00  INFO 3500 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:38:10.968+09:00  INFO 3500 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:38:10.969+09:00  INFO 3500 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 966 ms
+2024-02-14T15:38:11.554+09:00  INFO 3500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:38:11.562+09:00  INFO 3500 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 2.016 seconds (process running for 2.28)
+2024-02-14T15:38:16.060+09:00  INFO 3500 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:38:16.061+09:00  INFO 3500 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:38:16.062+09:00  INFO 3500 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T15:38:16.099+09:00  WARN 3500 --- [http-nio-80-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:38:18.436+09:00  WARN 3500 --- [http-nio-80-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:38:18.893+09:00  WARN 3500 --- [http-nio-80-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:38:19.052+09:00  WARN 3500 --- [http-nio-80-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:38:19.212+09:00  WARN 3500 --- [http-nio-80-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:46:58.140+09:00  INFO 10500 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 10500 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:46:58.143+09:00  INFO 10500 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:46:59.002+09:00  INFO 10500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:46:59.015+09:00  INFO 10500 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:46:59.015+09:00  INFO 10500 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:46:59.073+09:00  INFO 10500 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:46:59.074+09:00  INFO 10500 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 888 ms
+2024-02-14T15:46:59.651+09:00  INFO 10500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:46:59.658+09:00  INFO 10500 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.924 seconds (process running for 2.188)
+2024-02-14T15:47:06.871+09:00  INFO 11900 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 11900 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:47:06.873+09:00  INFO 11900 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:47:07.682+09:00  INFO 11900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:47:07.692+09:00  INFO 11900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:47:07.693+09:00  INFO 11900 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:47:07.755+09:00  INFO 11900 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:47:07.755+09:00  INFO 11900 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 842 ms
+2024-02-14T15:47:08.321+09:00  INFO 11900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:47:08.331+09:00  INFO 11900 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.846 seconds (process running for 2.128)
+2024-02-14T15:47:12.711+09:00  INFO 11900 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:47:12.711+09:00  INFO 11900 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:47:12.712+09:00  INFO 11900 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T15:47:12.752+09:00  WARN 11900 --- [http-nio-80-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:47:15.186+09:00  WARN 11900 --- [http-nio-80-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:47:20.296+09:00  WARN 11900 --- [http-nio-80-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingPathVariableException: Required URI template variable 'value' for method parameter type Long is not present]
+2024-02-14T15:47:36.856+09:00  INFO 9484 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 9484 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T15:47:36.859+09:00  INFO 9484 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T15:47:37.842+09:00  INFO 9484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T15:47:37.855+09:00  INFO 9484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T15:47:37.855+09:00  INFO 9484 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T15:47:37.909+09:00  INFO 9484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T15:47:37.910+09:00  INFO 9484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 996 ms
+2024-02-14T15:47:38.481+09:00  INFO 9484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T15:47:38.490+09:00  INFO 9484 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 2.094 seconds (process running for 2.37)
+2024-02-14T15:47:40.883+09:00  INFO 9484 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T15:47:40.883+09:00  INFO 9484 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T15:47:40.884+09:00  INFO 9484 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:04:57.152+09:00  INFO 2544 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 2544 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:04:57.155+09:00  INFO 2544 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:04:58.077+09:00  INFO 2544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:04:58.090+09:00  INFO 2544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:04:58.091+09:00  INFO 2544 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:04:58.147+09:00  INFO 2544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:04:58.148+09:00  INFO 2544 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 952 ms
+2024-02-14T16:04:58.723+09:00  INFO 2544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:04:58.731+09:00  INFO 2544 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.956 seconds (process running for 2.225)
+2024-02-14T16:05:09.139+09:00  INFO 2544 --- [http-nio-80-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:05:09.140+09:00  INFO 2544 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:05:09.141+09:00  INFO 2544 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:30:20.519+09:00  INFO 1188 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 1188 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:30:20.522+09:00  INFO 1188 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:30:21.334+09:00  INFO 1188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:30:21.345+09:00  INFO 1188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:30:21.346+09:00  INFO 1188 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:30:21.407+09:00  INFO 1188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:30:21.408+09:00  INFO 1188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 842 ms
+2024-02-14T16:30:21.972+09:00  INFO 1188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:30:21.983+09:00  INFO 1188 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.834 seconds (process running for 2.104)
+2024-02-14T16:30:45.163+09:00  INFO 1188 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:30:45.164+09:00  INFO 1188 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:30:45.165+09:00  INFO 1188 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:31:20.365+09:00  INFO 6228 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 6228 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:31:20.368+09:00  INFO 6228 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:31:21.284+09:00  INFO 6228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:31:21.298+09:00  INFO 6228 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:31:21.298+09:00  INFO 6228 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:31:21.369+09:00  INFO 6228 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:31:21.370+09:00  INFO 6228 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 957 ms
+2024-02-14T16:31:21.931+09:00  INFO 6228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:31:21.938+09:00  INFO 6228 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.952 seconds (process running for 2.27)
+2024-02-14T16:31:29.850+09:00  INFO 6228 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:31:29.850+09:00  INFO 6228 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:31:29.851+09:00  INFO 6228 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:32:47.013+09:00  INFO 2288 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 2288 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:32:47.016+09:00  INFO 2288 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:32:47.852+09:00  INFO 2288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:32:47.861+09:00  INFO 2288 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:32:47.861+09:00  INFO 2288 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:32:47.911+09:00  INFO 2288 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:32:47.912+09:00  INFO 2288 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 850 ms
+2024-02-14T16:32:48.451+09:00  INFO 2288 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:32:48.458+09:00  INFO 2288 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.883 seconds (process running for 2.162)
+2024-02-14T16:33:02.016+09:00  INFO 2288 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:33:02.016+09:00  INFO 2288 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:33:02.017+09:00  INFO 2288 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:33:14.084+09:00  INFO 15616 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 15616 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:33:14.086+09:00  INFO 15616 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:33:14.885+09:00  INFO 15616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:33:14.898+09:00  INFO 15616 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:33:14.898+09:00  INFO 15616 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:33:14.953+09:00  INFO 15616 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:33:14.953+09:00  INFO 15616 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 829 ms
+2024-02-14T16:33:15.527+09:00  INFO 15616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:33:15.537+09:00  INFO 15616 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.864 seconds (process running for 2.163)
+2024-02-14T16:33:18.565+09:00  INFO 15616 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:33:18.566+09:00  INFO 15616 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:33:18.566+09:00  INFO 15616 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-02-14T16:33:32.511+09:00  INFO 15384 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 15384 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:33:32.514+09:00  INFO 15384 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:33:33.317+09:00  INFO 15384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:33:33.326+09:00  INFO 15384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:33:33.327+09:00  INFO 15384 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:33:33.377+09:00  INFO 15384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:33:33.377+09:00  INFO 15384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 824 ms
+2024-02-14T16:33:33.899+09:00  INFO 15384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:33:33.907+09:00  INFO 15384 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.788 seconds (process running for 2.067)
+2024-02-14T16:33:36.180+09:00  INFO 15384 --- [http-nio-80-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:33:36.180+09:00  INFO 15384 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:33:36.181+09:00  INFO 15384 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:35:18.714+09:00  INFO 1156 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 1156 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:35:18.716+09:00  INFO 1156 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:35:19.591+09:00  INFO 1156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:35:19.605+09:00  INFO 1156 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:35:19.605+09:00  INFO 1156 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:35:19.666+09:00  INFO 1156 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:35:19.666+09:00  INFO 1156 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 908 ms
+2024-02-14T16:35:20.219+09:00  INFO 1156 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:35:20.228+09:00  INFO 1156 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.904 seconds (process running for 2.166)
+2024-02-14T16:35:29.415+09:00  INFO 1156 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:35:29.416+09:00  INFO 1156 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:35:29.416+09:00  INFO 1156 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-02-14T16:36:38.379+09:00  INFO 10180 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 10180 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:36:38.382+09:00  INFO 10180 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:36:39.221+09:00  INFO 10180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:36:39.236+09:00  INFO 10180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:36:39.237+09:00  INFO 10180 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:36:39.293+09:00  INFO 10180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:36:39.293+09:00  INFO 10180 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 872 ms
+2024-02-14T16:36:39.858+09:00  INFO 10180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:36:39.866+09:00  INFO 10180 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.867 seconds (process running for 2.133)
+2024-02-14T16:36:47.306+09:00  INFO 10180 --- [http-nio-80-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:36:47.306+09:00  INFO 10180 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:36:47.307+09:00  INFO 10180 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:37:24.063+09:00  INFO 3716 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 3716 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:37:24.066+09:00  INFO 3716 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:37:24.917+09:00  INFO 3716 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:37:24.928+09:00  INFO 3716 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:37:24.929+09:00  INFO 3716 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:37:24.986+09:00  INFO 3716 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:37:24.987+09:00  INFO 3716 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 884 ms
+2024-02-14T16:37:25.530+09:00  INFO 3716 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:37:25.538+09:00  INFO 3716 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.905 seconds (process running for 2.214)
+2024-02-14T16:37:35.997+09:00  INFO 3716 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:37:35.997+09:00  INFO 3716 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:37:35.999+09:00  INFO 3716 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-02-14T16:38:07.325+09:00  INFO 9280 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 9280 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:38:07.328+09:00  INFO 9280 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:38:08.133+09:00  INFO 9280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:38:08.143+09:00  INFO 9280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:38:08.144+09:00  INFO 9280 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:38:08.198+09:00  INFO 9280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:38:08.199+09:00  INFO 9280 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 830 ms
+2024-02-14T16:38:08.748+09:00  INFO 9280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:38:08.755+09:00  INFO 9280 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.878 seconds (process running for 2.202)
+2024-02-14T16:38:21.638+09:00  INFO 9280 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:38:21.638+09:00  INFO 9280 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:38:21.639+09:00  INFO 9280 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T16:54:01.322+09:00  INFO 8024 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 8024 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T16:54:01.325+09:00  INFO 8024 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T16:54:02.187+09:00  INFO 8024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T16:54:02.197+09:00  INFO 8024 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T16:54:02.198+09:00  INFO 8024 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T16:54:02.258+09:00  INFO 8024 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T16:54:02.259+09:00  INFO 8024 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 889 ms
+2024-02-14T16:54:02.794+09:00  INFO 8024 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T16:54:02.803+09:00  INFO 8024 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.856 seconds (process running for 2.132)
+2024-02-14T16:54:12.118+09:00  INFO 8024 --- [http-nio-80-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T16:54:12.119+09:00  INFO 8024 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T16:54:12.120+09:00  INFO 8024 --- [http-nio-80-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T17:04:40.532+09:00  INFO 6252 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 6252 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T17:04:40.534+09:00  INFO 6252 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T17:04:41.388+09:00  INFO 6252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T17:04:41.398+09:00  INFO 6252 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T17:04:41.398+09:00  INFO 6252 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T17:04:41.451+09:00  INFO 6252 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T17:04:41.451+09:00  INFO 6252 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 873 ms
+2024-02-14T17:04:42.036+09:00  INFO 6252 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T17:04:42.043+09:00  INFO 6252 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.874 seconds (process running for 2.143)
+2024-02-14T17:04:51.294+09:00  INFO 6252 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T17:04:51.294+09:00  INFO 6252 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T17:04:51.295+09:00  INFO 6252 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-02-14T17:07:03.023+09:00  INFO 1080 --- [main] book.FirstProjectApplication             : Starting FirstProjectApplication using Java 17.0.9 with PID 1080 (C:\Users\504-t\Desktop\ezen2023B_web1\build\classes\java\main started by 504-t in C:\Users\504-t\Desktop\ezen2023B_web1)
+2024-02-14T17:07:03.027+09:00  INFO 1080 --- [main] book.FirstProjectApplication             : No active profile set, falling back to 1 default profile: "default"
+2024-02-14T17:07:03.840+09:00  INFO 1080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 80 (http)
+2024-02-14T17:07:03.853+09:00  INFO 1080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-02-14T17:07:03.853+09:00  INFO 1080 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-14T17:07:03.911+09:00  INFO 1080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-02-14T17:07:03.911+09:00  INFO 1080 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 840 ms
+2024-02-14T17:07:04.462+09:00  INFO 1080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 80 (http) with context path ''
+2024-02-14T17:07:04.470+09:00  INFO 1080 --- [main] book.FirstProjectApplication             : Started FirstProjectApplication in 1.816 seconds (process running for 2.088)
+2024-02-14T17:07:11.853+09:00  INFO 1080 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-14T17:07:11.853+09:00  INFO 1080 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-02-14T17:07:11.854+09:00  INFO 1080 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms

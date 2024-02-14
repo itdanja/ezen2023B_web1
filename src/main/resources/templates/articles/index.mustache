@@ -1,0 +1,20 @@
+{{>layouts/header}}
+    <table border="1">
+        <thead>
+            <tr>
+                <th> ID </th>
+                <th> Title </th>
+                <th> Content </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#articleList}}
+            <tr>
+                <td> {{ id }} </td>
+                <td> {{ title }} </td>
+                <td> {{ content }} </td>
+            </tr>
+            {{/articleList}}
+        </tbody>
+    </table>
+{{>layouts/footer}}

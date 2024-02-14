@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.net.http.HttpRequest;
 import java.util.Date;
+import java.util.List;
 
 // 1.스프링 컨테이너(메모리 저장소)에 빈(객체/힙) 등록
 // 2.스프링이 해당 클래스를 사용할수 있다.
@@ -85,10 +86,25 @@ public class ArticleController {
         model.addAttribute("name" , "유재석" );
             // {{ 변수명 }}
             // {{>파일경로 }}
+            // {{#리스트변수 }}  ~~~ {{/리스트변수}}
         // p.161 3. 해당 함수가 종료될때 리턴 1.화면/뷰 (머스테치,HTML) 2. 값( JSON )
         return "articles/show";
     }
+    // p.170 조회
+        // [ 전체 조회 ]
+    @GetMapping("/articles")
+    public String index( Model model ){
+        // 1. p.175 DAO에게 요청해서 데이터 가져온다.
+        List<ArticleForm> result = articleDao.index();
+        // 2. p.175 뷰템플릿(머스테치)에게 전달할 값을 model 담아준다.
+        model.addAttribute("articleList", result);
+        // 3. p.175 뷰 페이지 설정
+        return "articles/index";
+    }
+
+
 }
+
 /*
 
     @어노테이션
