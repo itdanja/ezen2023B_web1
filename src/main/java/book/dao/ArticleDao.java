@@ -45,6 +45,24 @@ public class ArticleDao {
     }
 
     // ---------- ---------- ----------//
+    // 2. 개별 글 조회 : 매개변수: 조회할게시물번호(id) 반환:조회한게시물정보 1개(DTO)
+    public ArticleForm show( Long id ){
+        try{
+            String sql = "select * from article where id  = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setLong( 1  , id );
+            rs = ps.executeQuery();
+            if( rs.next() ){ // 1개 게시물을 조회 할 예정이라서 next() 한번 처리.
+                ArticleForm form = new ArticleForm(
+                        rs.getLong(1) ,
+                        rs.getString( 2 ) ,
+                        rs.getString( 3 ) );
+                return form;
+            }
+        }catch (Exception e ){   System.out.println("e = " + e);    }
+        return null;
+    }
+
 
 }
 
