@@ -91,6 +91,27 @@ public class ArticleDao {
         }catch (Exception e ){ System.out.println( e );  }
         return list;
     }
+
+    // ---------- ---------- ----------//
+    // 4. id를 해당하는 게시물 정보 호출 , 매개변수:id , 리턴 : dto
+    public ArticleForm findById( Long id ){
+        try{
+            String sql ="select * from article where id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setLong( 1 , id );
+            rs = ps.executeQuery();
+            if( rs.next() ){ // * 하나의 레코드를 Dto 로 생성 해서 바로 리턴.
+                return new ArticleForm(
+                          rs.getLong( "id" ),
+                          rs.getString( 2 ),
+                          rs.getString( 3 )
+                        );
+            }
+        }catch ( Exception e ){  System.out.println(e);      }
+        return null; // 오류 이면 null
+    }
+
+
 }
 
 

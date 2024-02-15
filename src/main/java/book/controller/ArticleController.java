@@ -104,7 +104,21 @@ public class ArticleController {
         return "articles/index";
     }
 
-
+    // p.202 수정 1단계 : 기존 데이터 불러오기
+    @GetMapping("/articles/{id}/edit") // GetMapping이유: <a> 이용해서 호출할 예정
+    public String edit( @PathVariable long id , Model model ){
+        System.out.println("id = " + id);
+        // 1. DAO에게 요청하고 응답 받는다.
+        ArticleForm form = articleDao.findById( id );
+        // 2. 응답결과를 뷰 템플릿에게 보낼 준비 model
+        model.addAttribute( "article" , form );
+        // 3. 뷰 페이지 설정
+        return "articles/edit";
+    }
+    // @PathVariable : 1.요청한 HTTP URL 경로상의 매개변수 대입 2. 자동타입변환
+        //  URL : /articles/{매개변수명}/edit        , 예시] /articles/1/edit  , /articles/2/edit
+        //  JAVA함수( @PathVariable("URL매개변수명") 타입 매개변수명 )
+        //      URL매개변수명 생략시 함수의 매개변수 명과 일치할경우 자동 대입
 }
 
 /*

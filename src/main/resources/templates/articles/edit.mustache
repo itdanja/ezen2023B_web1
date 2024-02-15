@@ -1,0 +1,10 @@
+{{>layouts/header}}
+    {{#article}}
+    <form action="" method="">
+        제목:<input name="title" value="{{ title }}" />   <br/>
+        내용:<textarea name="content" >{{ content }}</textarea> <br/>
+        <button type="submit">Submit</button>
+        <a href="/articles/{{id}}">뒤로가기(Back)</a>
+    </form>
+    {{/article}}
+{{>layouts/footer}}
