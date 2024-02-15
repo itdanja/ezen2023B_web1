@@ -1,4 +1,5 @@
 {{>layouts/header}}
+    <a href="/articles/new">글쓰기(New Article)</a>
     <table border="1">
         <thead>
             <tr>
@@ -11,7 +12,7 @@
             {{#articleList}}
             <tr>
                 <td> {{ id }} </td>
-                <td> {{ title }} </td>
+                <td> <a href="/articles/{{id}}"> {{ title }} </a> </td>
                 <td> {{ content }} </td>
             </tr>
             {{/articleList}}

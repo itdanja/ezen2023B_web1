@@ -37,7 +37,7 @@ public class ArticleController {
         // 2. 입력태그 속성의 name과 DTO 필드의 필드명 일치하면 자동 연결/대입 된다.
         // 3. public 생성자 필요
     @PostMapping("/articles/create")    // HTTP 요청 경로 : POST방식 : localhost:80/articles/create
-    public boolean createArticle( ArticleForm form ){
+    public String createArticle( ArticleForm form ){
         // soutm : 메소드명 출력
         System.out.println( new Date() );
         System.out.println("ArticleController.createArticle");
@@ -57,9 +57,11 @@ public class ArticleController {
         log.info( form.toString() ); // 자동완성 : 메누 -> 파일 -> 설정 -> 플러그인 -> 마켓플레이스 -> Lombok 설치
 
         // DAO에게 요청하고 응답 받기.
-        boolean result = articleDao.createArticle( form );
+        ArticleForm saved = articleDao.createArticle( form );
+        return "redirect:/articles/"+saved.getId() ; // URL 재요청
+        // return "redirect:/articles/{id}" ; // URL 재요청
+        // return "articles/index"; // 템플릿 반환 // model 이 없다.
 
-        return result ;
     } // m end
 
     // p.156 조회
