@@ -8,10 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpRequest;
 import java.util.Date;
@@ -115,6 +112,31 @@ public class ArticleController {
         // 3. 뷰 페이지 설정
         return "articles/edit";
     }
+
+    // p.214 수정 2단계 : 수정 데이터 받아 오기
+    @PostMapping("/article/update") // @PatchMapping @PutMapping
+    public String update( ArticleForm form ){
+        // * form 입력 데이터를 Dto 매개변수로 받을때
+            // 1. form 입력상자의 name 과 Dto의 필드명 동일
+            // 2. Dto의 필드 값을 저장할 생상자 필요
+        System.out.println("form = " + form);
+        // 2.DAO 에게 요청하고 응답받기
+        ArticleForm updated = articleDao.update( form );
+        // 3. 수정 처리된 상세페이지로 이동
+        return "redirect:/articles/"+updated.getId();
+    }
+
+    // p.234 : 삭제 요청
+    @GetMapping("/articles/{id}/delete")
+    public String delete(@PathVariable long id ){
+        System.out.println("id = " + id);
+        // 1. 삭제할 대상
+        // 2. Dao 삭제 요청하고 응답받기
+        boolean result = articleDao.delete( id );
+        // 3. 결과 페이지로 리다이렉트 하기.
+        return "redirect:/articles";
+    }
+
     // @PathVariable : 1.요청한 HTTP URL 경로상의 매개변수 대입 2. 자동타입변환
         //  URL : /articles/{매개변수명}/edit        , 예시] /articles/1/edit  , /articles/2/edit
         //  JAVA함수( @PathVariable("URL매개변수명") 타입 매개변수명 )

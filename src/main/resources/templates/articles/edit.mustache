@@ -1,6 +1,7 @@
 {{>layouts/header}}
     {{#article}}
-    <form action="" method="">
+    <form action="/article/update" method="post">
+        <input name="id" type="hidden" value="{{id}}"/>
         제목:<input name="title" value="{{ title }}" />   <br/>
         내용:<textarea name="content" >{{ content }}</textarea> <br/>
         <button type="submit">Submit</button>
