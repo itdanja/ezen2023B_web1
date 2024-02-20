@@ -1,5 +1,7 @@
 package example.day08._2인과제;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,22 +10,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+@Component
 public class BoardDao {
 
-    private Connection conn;
-    private PreparedStatement ps;
-    private ResultSet rs;
+    private Connection conn;          private PreparedStatement ps;          private ResultSet rs;
 
     public  BoardDao(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/day08",
-                    "root", "1234"
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/day08","root", "1234"
             );
-        }catch (Exception e ){
-            System.out.println("e = " + e);
-        }
+        }catch (Exception e ){   System.out.println("e = " + e);   }
     }
 
     // 1. 저장

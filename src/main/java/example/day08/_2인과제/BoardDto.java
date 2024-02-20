@@ -1,6 +1,7 @@
 package example.day08._2인과제;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @NoArgsConstructor

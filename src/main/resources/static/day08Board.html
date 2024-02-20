@@ -10,7 +10,7 @@
     내용 : <input />  <br/>
     작성자 : <input />   <br/>
     비밀번호 : <input />  <br/>
-    <button > 등록 </button>
+    <button onclick="doCreate()"> 등록 </button>
 
     <table>
         <thead>
@@ -19,12 +19,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>  <th> 1 </th> <th> 안녕하세요 </th> <th> 유재석 </th> <th> <button>삭제</button> <button>수정</button> </th>  </tr>
-            <tr>  <th> 2 </th> <th> 안녕하세요 </th> <th> 유재석 </th> <th> <button>삭제</button> <button>수정</button> </th>  </tr>
-            <tr>  <th> 3 </th> <th> 안녕하세요 </th> <th> 유재석 </th> <th> <button>삭제</button> <button>수정</button> </th>  </tr>
-            <tr>  <th> 4 </th> <th> 안녕하세요 </th> <th> 유재석 </th> <th> <button>삭제</button> <button>수정</button> </th>  </tr>
-        </tbody>
+            <tr>
+                <th> 1 </th> <th> 안녕하세요 </th> <th> 유재석 </th> <th>
+                <button onclick="doDelete( 2 )" >삭제</button>
+                <button onclick="doDelete( 3 )" >수정</button>
+            </th>  </tr>
+       </tbody>
     </table>
+
+    <script src="/js/day08Board.js"></script>
 
 </body>
 </html>
