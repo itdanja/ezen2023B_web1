@@ -12,9 +12,8 @@ function login(){
 
     // 3. 서버와 통신
     $.ajax({
-       url : '/member/login',           // 어디에
+       url : `/articles/${id}/edit`,           // 어디에
        method : 'POST',                 // 어떻게
-       data :  info  ,                   // 무엇을 보낼지. 입력받은값 보내기
        success : function ( result ){   // 무엇을 받을지. 통신후 응답받은 값
             console.log( result );
             // 4. 결과
