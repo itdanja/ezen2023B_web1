@@ -89,7 +89,6 @@ function doUpdate( bno ){
 function doDelete( bno ){
     console.log( "doDelete()" + bno  );
 
-    let bcontent = prompt('수정할 내용 ');
     let bpassword = prompt('게시물 비밀번호 ');
 
     // ----------- AJAX ------------- //
