@@ -7,9 +7,9 @@
 <body>
 
     <h3> 비회원 방문록 </h3>
-    내용 : <input />  <br/>
-    작성자 : <input />   <br/>
-    비밀번호 : <input />  <br/>
+    내용 : <input id="bcontent" value=""/>  <br/>
+    작성자 : <input id="bwriter" value=""/>   <br/>
+    비밀번호 : <input id="bpassword" value="" />  <br/>
     <button onclick="doCreate()"> 등록 </button>
 
     <table>
@@ -19,14 +19,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th> 1 </th> <th> 안녕하세요 </th> <th> 유재석 </th> <th>
-                <button onclick="doDelete( 2 )" >삭제</button>
-                <button onclick="doDelete( 3 )" >수정</button>
-            </th>  </tr>
+
        </tbody>
     </table>
-
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/js/day08Board.js"></script>
 
 </body>
