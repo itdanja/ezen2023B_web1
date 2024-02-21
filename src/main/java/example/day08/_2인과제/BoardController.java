@@ -36,15 +36,31 @@ public class BoardController {
     // 3. 수정
     @PostMapping("/board/update")
     @ResponseBody
-    public boolean update(BoardDto boardDto) {              System.out.println("BoardController.update");System.out.println("boardDto = " + boardDto);
-        boolean result = boardDao.update( boardDto );       System.out.println("result = " + result);
+    public boolean update( BoardDto boardDto) {   System.out.println("BoardController.update");System.out.println("boardDto = " + boardDto);
+
+        // 1. 패스워드 검증 요청
+        boolean result = boardDao.confirmPassword(
+                boardDto.getBno() , boardDto.getBpassword()
+                );
+
+        if( result ){
+            // 2. 수정 요청
+            result = boardDao.update( boardDto ); System.out.println("result = " + result);
+        }
         return result;
     }
     // 4. 삭제
-    @GetMapping("/board/delete/{bno}")
+    @GetMapping("/board/delete/{bno}/{bpassword}")
     @ResponseBody
-    public boolean delete( @PathVariable int bno ) {                      System.out.println("BoardController.delete");System.out.println("bno = " + bno);
-        boolean result = boardDao.delete( bno );            System.out.println("result = " + result);
+    public boolean delete( @PathVariable int bno , @PathVariable String bpassword ) {       System.out.println("BoardController.delete");System.out.println("bno = " + bno);
+
+        // 1. 패스워드 검증 요청
+        boolean result = boardDao.confirmPassword( bno , bpassword );
+
+        if( result ) {
+            // 2. 삭제 요청
+            result = boardDao.delete(bno); System.out.println("result = " + result);
+        }
         return result;
     }
 

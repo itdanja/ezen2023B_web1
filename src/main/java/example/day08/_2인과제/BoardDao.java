@@ -49,7 +49,7 @@ public class BoardDao {
     // 3. 수정
     public boolean update(BoardDto boardDto) {  System.out.println("BoardDao.update");System.out.println("boardDto = " + boardDto);
         try{
-            String sql = "update board set bcontent = ? where bno = ? ";
+            String sql = "update board set bcontent = ? where bno = ?";
             ps = conn.prepareStatement(sql);
             ps.setString( 1 , boardDto.getBcontent() );
             ps.setInt( 2 , boardDto.getBno()  );
@@ -65,7 +65,35 @@ public class BoardDao {
             ps.executeUpdate();    return true;
         }catch (Exception e ){  System.out.println("e = " + e);  }return false;
     }
+
+    // 5. 게시물 번호에 따른 패스워드 검증
+    public boolean confirmPassword( int bno , String bpassword ){
+        try{
+            String sql = "select * from board where bno = ? and bpassword = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setInt( 1 , bno );
+            ps.setString( 2 , bpassword );
+            rs = ps.executeQuery();
+            if( rs.next() ){
+                return true;
+            }
+        }catch (Exception e ){  System.out.println("e = " + e);  }return false;
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

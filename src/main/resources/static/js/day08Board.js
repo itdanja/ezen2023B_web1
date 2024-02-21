@@ -64,24 +64,51 @@ function doRead( ){
 // 3. 수정 메소드 : 실행조건 : 수정 버튼 클릭시    매개변수 : 수정할식별키bno , 리턴 x
 function doUpdate( bno ){
     console.log( "doUpdate()" + bno );
+    // 1. 수정할 내용 가져온다.
+    let bcontent = prompt('수정할 내용 ');
+    let bpassword = prompt('게시물 비밀번호 ');
+    // 2. 객체화
+    let info = {
+        bno: bno ,
+        bcontent : bcontent ,
+        bpassword : bpassword
+    }
     // ----------- AJAX ------------- //
     $.ajax({
        url : '/board/update',
        method : 'POST',
-       data :  { bno: bno , bcontent : '수정할내용' }  ,
-       success : function ( result ){ console.log(result); }
+       data : info  ,
+       success : function ( result ){
+            if( result ){ alert('글수정 성공'); doRead(); }
+            else{ alert('글수정 실패'); }
+       }
     })
     // ------------------------------ //
 }
 // 4. 삭제 메소드 : 실행조건 : 삭제 버튼 클릭시    매개변수 : 삭제할식별키bno , 리턴 x
 function doDelete( bno ){
     console.log( "doDelete()" + bno  );
+
+    let bcontent = prompt('수정할 내용 ');
+    let bpassword = prompt('게시물 비밀번호 ');
+
     // ----------- AJAX ------------- //
     $.ajax({
-       url : '/board/delete/'+bno,
+       url : `/board/delete/${bno}/${bpassword}`,
        method : 'GET',
-       success : function ( result ){ console.log(result); }
+       success : function ( result ){
+            if( result ){ alert('삭제성공'); doRead(); }
+            else{ alert('삭제실패'); }
+       }
     })
     // ------------------------------ //
  }
+
+
+
+
+
+
+
+
 
