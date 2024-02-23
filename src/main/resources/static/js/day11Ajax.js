@@ -32,7 +32,7 @@ function ajax3(){
 // 4. HTTP 본문(body) 에 객체 보내기 --> 자동으로 쿼리스트링으로 변환.
 function ajax4(){
     $.ajax({
-        url : 'day11/ajax5',
+        url : 'day11/ajax4',
         method : "get" ,
         data : { 'id' : id , 'content' : content } , // 자동으로 쿼리스트링
         success : (r) => { console.log(r); }
@@ -48,6 +48,15 @@ function ajax5(){
     })
 }
 
+// 6.
+function ajax6(){
+    $.ajax({
+        url : "/day11/ajax6",method:'post',
+        data : JSON.stringify( { 'id' : id , 'content' : content } )  ,
+        contentType : 'application/json',
+        success : (r)=>{  console.log(r);   }
+    })
+}
 
 
 
