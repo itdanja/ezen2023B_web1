@@ -22,7 +22,7 @@ public class BoardController {
     // 1. 저장
     @PostMapping("/board/create")
     @ResponseBody
-    public boolean create(BoardDto boardDto){               System.out.println("BoardController.create");System.out.println("boardDto = " + boardDto);
+    public boolean create( BoardDto boardDto ){               System.out.println("BoardController.create");System.out.println("boardDto = " + boardDto);
         boolean result =  boardDao.create( boardDto );      System.out.println("result = " + result);
         return result;
     }

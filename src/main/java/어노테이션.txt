@@ -1,0 +1,30 @@
+@ServletComponentScan
+    - 스프링MVC 환경에서 서블릿을 단독적으로 사용할때
+
+@SpringBootApplication
+    - 스프링 에서 웹에 관련된 기능을 주입
+    - 1. Uses Apache Tomcat as the default embedded container 내장 아파치톰캣 설정/실행
+        ip : 톰캣이 설치된 컴퓨터의 ip주소
+        port : 톰캣(소프트웨어) 식별번호
+            프로젝트내 src -> main -> resources -> application.properties
+                server.port = 80
+            * application.properties : 스프링 설정파일 ( MAP 컬렉션프레임워크 타입 )
+
+        http://192.168.17.96:80
+            - HTTP 통신 규약을 이용한 톰캣에 요청
+
+    - 2. including RESTful( GET POST PUT DELETE )
+
+    - 3. applications using Spring MVC( Controller , view , model )
+        - 컴포넌트들을 스캔 해서 빈(객체)를 스프링 컨테이너 등록 ( * 상위 패키지의 클래스는 스캔 불가 )
+            - @Controller
+            - @RestController
+            - @Component
+            - 등등
+
+    - 스프링 실행 방법
+    public static void main(String[] args) {
+        SpringApplication.run( 현재클래스.class );
+    }
+
+
