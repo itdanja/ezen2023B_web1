@@ -27,4 +27,62 @@
         SpringApplication.run( 현재클래스.class );
     }
 
+Spring MVC
+    1. @Controller
+        - 컨트롤러 역할 : Dao/service 와 view 사이의 통신/중계
+            - 컨트롤러가 view에게 데이터(model) 또는 화면(view) 응답할수 있다.
+            - 스프링MVC 아키텍처로 구성된 스프링컨테이너(저장소)에 컨트롤러객체(빈) 를 등록
+    2. @RestController
+        - @Controller + @ResponseBody 포함
+        - 컨트롤러가 view에게 데이터(model) 만 응답.
+
+        * HTTP 요청 매핑
+            1. @RequestMapping( value = "URL" , method = RequestMethod.XXX )
+                GET : @RequestMapping( value = "URL" , method = RequestMethod.GET )
+                POST : @RequestMapping( value = "URL" , method = RequestMethod.POST )
+                PUT : @RequestMapping( value = "URL" , method = RequestMethod.PUT )
+                DELETE : @RequestMapping( value = "URL" , method = RequestMethod.DELETE )
+                - 주로 : 컨트롤 안에 있는 매핑 함수들의 URL이 공통이 있을때 클래스 위에
+                @RequestMapping("/공통URL")
+
+            2. XXXMapping
+                @PostMapping("URL")     : C 저장
+                @GetMapping("URL")      : R 조회
+                @PutMapping("URL")      : U 수정/저장
+                @DeleteMapping("URL")   : D 삭제
+
+        * HTTP 응답
+            1. @ResponseBody    : 응답(Response) Body(객체) : 응답 데이터를 객체로 하겠다.
+                String --> HTTP contentType --> text/plain
+                객체:컬렉션프레임워크/배열/기본타입 --> HTTP contentType --> application/json
+
+HTTP 요청시 매개변수/데이터 를 보내는 방법
+    < URL 경로 >
+    1. 쿼리스트링 : url?key=value&key=value&key=value
+        - 식별이 가능
+    2. 경로변수 : url/value1/value2
+        - 식별이 불가능
+
+    - 사용자가 데이터를 쉽게 볼수 있다. < 보안 취약 > : 보안 필요없으면 가능.
+
+    < http body > : http 안에 내용을 첨부할수 있는 보관소
+        POST / PUT : body 사용 함
+            - 회원가입 , 로그인 , 글쓰기
+        GET / DELETE : body 사용 안함.
+            - 글 전체 목록 , 글 개별 조회 , 글삭제
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
