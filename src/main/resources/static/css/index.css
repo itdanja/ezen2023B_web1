@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    font-family: 'Ownglyph_meetme-Rg';
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.top_menu{
+    justify-content: space-between;
+}
+#login_menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#login_menu > li{
+    margin: 10px;
+}
+.navbar-brand > img{
+    width: 200px;
+}
+a{
+    cursor: pointer;
+}
+.login_pimg{
+    width: 30px;
+    border-radius: 50%;
+}
+#main_menu{
+    font-size: 20px;
+}

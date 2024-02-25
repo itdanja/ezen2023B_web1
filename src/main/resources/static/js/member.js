@@ -12,12 +12,12 @@ function login(){
 
     // 3. 서버와 통신
     $.ajax({
-       url : `/articles/${id}/edit`,           // 어디에
+       url : `/member/login`,           // 어디에
        method : 'POST',                 // 어떻게
        success : function ( result ){   // 무엇을 받을지. 통신후 응답받은 값
             console.log( result );
             // 4. 결과
-            if( result ){ alert('로그인성공'); }
+            if( result ){ alert('로그인성공'); location.href="/"; }
             else{ alert('로그인실패'); }
        } // success end
     }) // ajax end

@@ -2,6 +2,8 @@ package ezenweb.controller;
 
 import ezenweb.model.dto.LoginDto;
 import ezenweb.model.dto.MemberDto;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
     // 4단계. 응답 : 1.뷰 반환 : text/html;  VS  2. 데이터/값 : @ResponseBody : Application/JSON
 @Controller
 public class MemberController {
+
+    @Autowired
+    private HttpServletRequest request;
 
 
     // 1.=========== 회원가입 처리 요청 ===============
@@ -36,8 +41,45 @@ public class MemberController {
         System.out.println("loginDto = " + loginDto);
         // --
         boolean result = true; // Dao처리
+
+        if( result ){
+            request.getSession().setAttribute("loginMno" , 3 );
+            System.out.println("result = " + result);
+        }
+
         return result; // Dao 요청후 응답 결과를 보내기
     }
+    // 2. =========== 로그인  ===============
+    @GetMapping("/member/login/check") // http://localhost:80/member/login
+    @ResponseBody  // 응답 방식 application/json;
+    public int doGetLoginInfo(  ){
+
+        int loginMno = 0;
+
+        Object o = request.getSession().getAttribute("loginMno" );
+        if( o != null ){
+            System.out.println("o = " + o);
+             loginMno = (Integer)o;
+        }
+        System.out.println("loginMno = " + loginMno);
+        return loginMno; // Dao 요청후 응답 결과를 보내기
+    }
+
+    // 2. =========== 로그인  ===============
+    @GetMapping("/member/logout") // http://localhost:80/member/login
+    @ResponseBody
+    public boolean doGetLoginOut(  ){
+
+        Object o = request.getSession().getAttribute("loginMno" );
+        if( o != null ){
+            request.getSession().setAttribute("loginMno" , null );
+            return true;
+        }
+        return false;
+    }
+
+
+
     // 3. =========== 회원가입 페이지 요청 ===============
     @GetMapping("/member/signup")
     public String viewSignup(){
