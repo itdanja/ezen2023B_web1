@@ -1,24 +1,10 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
+{{>ezenweb/header}}
     <h3> 로그인 페이지 </h3>
-
     <div>
         아이디 : <input  type="text" id="id"/> <br/>
         비밀번호 : <input type="text" id="pw"/> <br/>
         <a href="/member/signup">회원가입</a>
         <button type="button" onclick="login()">로그인</button>
     </div>
-
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/js/member.js"></script>
-
-</body>
-</html>
+{{>ezenweb/footer}}
