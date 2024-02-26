@@ -1,0 +1,51 @@
+
+.signupForm{  /* 회원가입 전체 구역 */
+	width: 40%; margin: 0 auto; font-size: 15px;
+}
+.signupForm h2 , .signupForm p { /* 회원가입 전체 타이틀/알림 */
+	text-align: center; /* 구역내 텍스트 가운데정렬 */
+	margin-top: 10px;
+}
+.signupForm input{ /* 입력 상자 */
+	width: 100%;	height: 50px;	padding: 10px;
+	border: 1px solid #e8e8e8; border-radius:10px;
+}
+.intitle{ /* 입력 구역 이름 */
+	font-size: 16px; margin: 20px 0px 10px 0px;
+}
+.idcheckbox , .pwcheckbox , .emailcheckbox{ /* 유효성검사 결과 구역 */
+	color: #ea3636;	font-size: 15px;
+	margin: 0px 0px 10px 10px;
+}
+.emailbox{ display: flex; } /* 이메일 구역 */
+.emailbox button , .authbox button{ /* 인증요청 버튼 , 인증 버튼 */
+	width : 20%;	height : 50px;
+	background-color: #75C1CF;	color: white;
+	border: none; border-radius: 15px;
+	margin-left: 10px;
+}
+.authbox{  /* 인증 구역 */
+	display:  flex;  align-items: center;
+	margin-top: 10px;
+}
+.timebox{ width: 30%; padding: 10px; font-size: 20px; } /* 인증시간이 표시되는 구역 */
+/* 첨부파일 이미지 미리보기 구역 */
+.preimg{
+	width: 150px; height: 150px;
+	border: 1px solid #e8e8e8; border-radius: 50%;
+	object-fit: cover; /*  구역보다 사진이 컸을때.  */
+}
+/* 회원가입 버튼 */
+.signupbtn{
+	width: 100%; height: 50px;
+	border: none;
+	background-color: #75C1CF;	color: white;
+	font-size: 23px;
+	margin: 10px 0px 30px 0px;
+	border-radius: 30px;
+}
+.preimgbox{
+        display: flex;
+        justify-content: center;
+        margin: 30px 0px;
+}

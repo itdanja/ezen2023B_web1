@@ -16,7 +16,7 @@ public class MemberDao extends  Dao {
             ps.setString( 3, memberDto.getName() );
             ps.setString( 4, memberDto.getEmail() );
             ps.setString( 5, memberDto.getPhone() );
-            ps.setString( 6, memberDto.getImg() );
+            ps.setString( 6, memberDto.getImg().getOriginalFilename() );
             int count = ps.executeUpdate();
             if( count == 1 ){ return true; }
         }catch (Exception e ){  System.out.println("e = " + e);   }

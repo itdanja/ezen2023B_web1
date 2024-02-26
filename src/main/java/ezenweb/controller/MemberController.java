@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
+import java.util.UUID;
+
 
 // 1단계. V<---->C 사이의 HTTP 통신 방식 설계
     // 2단계. Controller mapping 함수 선언 하고 통신 체크 ( API Tester )
@@ -24,12 +27,31 @@ public class MemberController {
     @Autowired
     private MemberDao memberDao;
 
+    private String fileRootPath ="C:\\Users\\MSI\\ezen2023B_web1\\build\\resources\\main\\static\\img\\";
+
     // 1.=========== 회원가입 처리 요청 ===============
     @PostMapping("/member/signup") // http://localhost:80/member/signup
     @ResponseBody // 응답 방식 application/json;
     public boolean doPostSignup( MemberDto memberDto ){
-        boolean result = memberDao.doPostSignup( memberDto );//Dao처리;
-        return result; // Dao 요청후 응답 결과를 보내기.
+
+        // 0.유효성검사 ,
+        if( memberDto.getImg().isEmpty() ){ // 파일이 비어 있으면
+            return false; // 비어 있으면 null 리턴
+        }
+        // 1. 파일명[ 파일명은 식별자가 될수 없다. 1.UUID 조합 2.날짜/시간 조합 3.상위컨텐츠PK 등등 ]
+        String fileName =
+                UUID.randomUUID().toString()+"_"+ // UUID 이용한 파일 식별자 만들기
+                        memberDto.getImg().getOriginalFilename().replaceAll("_","-"); // 만일 식별을 위해 '_'를  '-' 변경
+        // 2. 파일 경로
+        File file = new File( fileRootPath + fileName );
+        // 3. 업로드
+        try{
+            memberDto.getImg().transferTo( file );
+            return memberDao.doPostSignup( memberDto );//Dao처리;
+        }catch (Exception  e ){
+            System.out.println("업로드 실패 "+e);
+            return false; // 실패시 null 리턴
+        }
     }
     // 2. =========== 로그인 처리 요청  / 세션 저장 ===============
     @PostMapping("/member/login") // http://localhost:80/member/login
