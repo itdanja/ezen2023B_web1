@@ -8,11 +8,11 @@ $.ajax({
         // 1. 어디에
         let login_menu = document.querySelector('#login_menu');
         // 2. 무엇을
-        let html = ` `;
-        if( r != 0 ){ // 로그인 했을때
+        let html = ``;
+        if( r != '' ){ // 로그인 했을때
             html += `<li class="nav-item">   <a class="nav-link" onclick="logout()">로그아웃</a>   </li>
                       <li class="nav-item">   <a class="nav-link" href="#">내정보</a>   </li>
-                      <li class="nav-item"> <img src="#"/> 유재석 님 </li>`;
+                      <li class="nav-item"> <img src="#"/> ${ r } 님 </li>`;
         }else{ // 로그인 안했을떄
             html += `<li class="nav-item">   <a class="nav-link" href="/member/login">로그인</a>        </li>
                       <li class="nav-item">   <a class="nav-link" href="/member/signup">회원가입</a>     </li>`;

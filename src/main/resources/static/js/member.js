@@ -14,10 +14,11 @@ function login(){
     $.ajax({
        url : `/member/login`,           // 어디에
        method : 'POST',                 // 어떻게
-       success : function ( result ){   // 무엇을 받을지. 통신후 응답받은 값
-            console.log( result );
+       data : info,                     // 보낼 데이터
+       success : (r)=>{   // 무엇을 받을지. 통신후 응답받은 값
+            console.log( r );
             // 4. 결과
-            if( result ){
+            if( r ){
                 alert('로그인성공');
                 //  JS 페이지 전환
                 location.href="/"; // 로그인 성공시 메인페이지로
@@ -48,10 +49,10 @@ function signup(){
             url : '/member/signup',         // controller 매핑 주소
             method : 'POST',                // controller 매핑 방법
             data :  info ,                  // controller 요청 보낼 매개변수
-            success : function ( result ){  // controller 응답 받은 매개변수
-                console.log( result);
+            success : (r) => {  // controller 응답 받은 매개변수
+                console.log( r);
                 // 4. 결과
-                if( result ) {
+                if( r ) {
                     alert('회원가입 성공');
                     location.href = '/member/login';
                 }else{

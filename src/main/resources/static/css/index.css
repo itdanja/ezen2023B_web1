@@ -1,0 +1,50 @@
+/*
+    선택자{ 속성명:값 ; 속성명:값 }
+        선택자
+        1. *
+        2. 마크업명
+        3. .class       복수
+        4. #id          단일
+        - 우선순위 : !important -> style속성 -> id -> class -> 마크업 -> *
+        자식 선택자 
+            선택자 > 선택자
+        자손 선택자 
+            선택자 선택자
+        복수 선택자 
+            선택작,선택자
+*/
+@font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    /*기본 여백 제거 */
+    padding: 0; 
+    margin: 0;
+    list-style-type: none; /* 글머리 */
+    font-family: 'Ownglyph_meetme-Rg';
+}
+/* 헤더 로고 이미지 */
+#head_logo > img{
+    width: 70px;
+}
+.top_menu{
+    display: flex;
+    justify-content: space-between;
+}
+#main_menu{
+    display: flex;
+}
+#main_menu > li{
+    margin: 0px 30px;
+    font-size: 20px;
+}
+#login_menu{
+    display: flex;
+}
+#login_menu > li{
+    margin: 0 10px;
+}
