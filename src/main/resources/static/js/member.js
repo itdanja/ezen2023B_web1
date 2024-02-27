@@ -33,22 +33,33 @@ function login(){
 function signup(){
     console.log( "signup() ");
     // 1. HTML 입력값 호출[ document.querySelector() ]
-    let id  = document.querySelector('#id').value;      console.log( id );
-    let pw  = document.querySelector('#pw').value;      console.log( pw );
-    let name = document.querySelector('#name').value;   console.log( name );
-    let phone = document.querySelector('#phone').value; console.log( phone );
-    let email = document.querySelector('#email').value; console.log( email );
-    let img = document.querySelector('#img').value;     console.log( img );
-    // --- 유효성검사
-    // 2. 객체화 [ let info = { }  ]
-    let info = {
-        id : id , pw : pw , name : name , phone : phone , email : email , img : img
-    }; console.log( info );
+        // 1. 데이터 하나씩 가져오기
+        //    let id  = document.querySelector('#id').value;      console.log( id );
+        //    let pw  = document.querySelector('#pw').value;      console.log( pw );
+        //    let name = document.querySelector('#name').value;   console.log( name );
+        //    let phone = document.querySelector('#phone').value; console.log( phone );
+        //    let email = document.querySelector('#email').value; console.log( email );
+        //    let img = document.querySelector('#img').value;     console.log( img );
+// --- 유효성검사
+        // 2. 객체화 [ let info = { }  ]
+//        let info = {
+//            id : id , pw : pw , name : name , phone : phone , email : email , img : img
+//        }; console.log( info );
+
+        // 2. 폼 가져오기
+    let signUpForm = document.querySelector('.signUpForm');
+        console.log( signUpForm ); //
+    let signUpFormData = new FormData( signUpForm );
+        console.log( signUpFormData );  // new FormData : 문자데이터가 아닌 바이트 데이터로 변환. ( 첨부파일 필수 )
+
     // 3. [1개월차] 객체를 배열에 저장 --> [3개월차] SPRING CONTROLLER 서버 와 통신[ JQUERY AJAX ]
     $.ajax({
             url : '/member/signup',         // controller 매핑 주소
             method : 'POST',                // controller 매핑 방법
-            data :  info ,                  // controller 요청 보낼 매개변수
+//            data :  info ,                  // controller 요청 보낼 매개변수
+            data : signUpFormData ,
+            contentType  : false ,
+            processData  : false ,
             success : (r) => {  // controller 응답 받은 매개변수
                 console.log( r);
                 // 4. 결과
