@@ -11,6 +11,7 @@ public class MemberService {
     private FileService fileService; // 외부 서비스
     @Autowired
     private MemberDao memberDao; // 외부 리포지토리
+
     // 1. 회원가입 서비스
     public boolean doPostSignup( MemberDto memberDto ){
         // 1. 파일 처리
@@ -23,4 +24,19 @@ public class MemberService {
         }
         return false;
     } // end
+
+    // 2. 로그인 서비스
+
+    // 3. 회원정보 요청 서비스
+    public MemberDto doGetLoginInfo( String id ){
+        // 1. DAO 호출
+        return memberDao.doGetLoginInfo( id );
+    }
+
 }
+
+
+
+
+
+

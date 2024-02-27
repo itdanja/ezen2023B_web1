@@ -42,6 +42,7 @@ public class MemberController {
     public boolean doPostLogin( LoginDto loginDto ){
         boolean result = memberDao.doPostLogin( loginDto ); // Dao처리
         if( result ){ // 만약에 로그인 성공이면 세션 부여
+            // 세션에 저장할 내용물들을 구성( 식별키 만 )
             request.getSession().setAttribute( "loginDto" , loginDto.getId() );    // loginDto : 3
         }
         return result; // Dao 요청후 응답 결과를 보내기
@@ -69,6 +70,32 @@ public class MemberController {
             // request.getSession().setAttribute("loginDto", null );
         return true; // 로그아웃 성공시 => 메인페이지 또는 로그인페이지 이동
     }
+    // 3 ============== 회원정보 요청 ( 로그인된 회원 요청 , 패스워드 제외 ) ============
+    @GetMapping("/member/login/info")
+    @ResponseBody
+    public MemberDto doGetLoginInfo( String id ){
+        return memberService.doGetLoginInfo( id ); // 서비스 요청과 응답 전달
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // 3. =========== 회원가입 페이지 요청 ===============
     @GetMapping("/member/signup")

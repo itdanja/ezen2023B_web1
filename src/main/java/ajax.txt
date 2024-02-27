@@ -26,6 +26,8 @@ ajax
             - JS JSON                         : application/json
         8. processData
             - processData : false               : 문자형식이 아닌 바이트형식으로 보내는 방법 ( 첨부파일 )
-
+        9. async : ajax 통신을 동기화(응답오기전까지 대기 상태 ) 비동기화( 응답상태를 대기 안함 )
+            - async : true 기본값 ( 비동기 )
+            - async : false ( 동기화 )
 
 
