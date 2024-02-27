@@ -1,5 +1,6 @@
 package ezenweb.controller;
 
+import ezenweb.Service.MemberService;
 import ezenweb.model.dao.MemberDao;
 import ezenweb.model.dto.LoginDto;
 import ezenweb.model.dto.MemberDto;
@@ -7,6 +8,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.util.UUID;
 
 
 // 1단계. V<---->C 사이의 HTTP 통신 방식 설계
@@ -16,21 +21,21 @@ import org.springframework.web.bind.annotation.*;
     // 4단계. 응답 : 1.뷰 반환 : text/html;  VS  2. 데이터/값 : @ResponseBody : Application/JSON
 @Controller
 public class MemberController {
-
     // * Http요청 객체
     @Autowired
     private HttpServletRequest request;
     // * memberDao 객체
     @Autowired
     private MemberDao memberDao;
-
+    @Autowired
+    private MemberService memberService;
     // 1.=========== 회원가입 처리 요청 ===============
     @PostMapping("/member/signup") // http://localhost:80/member/signup
     @ResponseBody // 응답 방식 application/json;
     public boolean doPostSignup( MemberDto memberDto ){
-        boolean result = memberDao.doPostSignup( memberDto );//Dao처리;
-        return result; // Dao 요청후 응답 결과를 보내기.
+        return memberService.doPostSignup(memberDto);
     }
+
     // 2. =========== 로그인 처리 요청  / 세션 저장 ===============
     @PostMapping("/member/login") // http://localhost:80/member/login
     @ResponseBody  // 응답 방식 application/json;
