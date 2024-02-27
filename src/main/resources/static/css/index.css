@@ -44,7 +44,37 @@
 }
 #login_menu{
     display: flex;
+    align-items: center;
 }
 #login_menu > li{
     margin: 0 10px;
 }
+
+/* 헤더 프로필 사진  nth-child(형제인덱스 1부터시작 )  */
+#login_menu > li:nth-child( 3 ) > img{
+    width : 60px;  border-radius : 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

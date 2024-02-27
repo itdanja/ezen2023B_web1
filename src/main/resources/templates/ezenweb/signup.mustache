@@ -8,8 +8,15 @@
         이름 : <input type="text" id="name" name="name"/> <br/>
         전화번호 : <input type="text" id="phone" name="phone" /> <br/>
         이메일 : <input type="text" id="email" name="email" /> <br/>
-        프로필 사진 :   <input type="file" id="img" name="img" /> <br/>
-        <button type="button" onclick="signup()">회원가입</button>
+
+        프로필 사진 :
+        <input onchange="onChangeImg( this )" type="file" id="img"
+               name="img" accept="image/*" /> <br/>
+
+        미리보기 :
+        <div>    <img id="preimg" src="/img/default.jpg" />   </div>
+
+        <button type="button" onclick="signup(  )">회원가입</button>
         <a href="/member/login">로그인</a>
 <!--    </div>-->
     </form>

@@ -14,15 +14,25 @@ public class MemberService {
 
     // 1. 회원가입 서비스
     public boolean doPostSignup( MemberDto memberDto ){
-        // 1. 파일 처리
-        String fileName = fileService.fileUpload( memberDto.getImg() );
-        if( fileName != null ){ // 업로드 성공 했으면
-            // 2. DB 처리
-            // dto에 업로드 성공한 파일명을 대입한다.
-            memberDto.setUuidFile( fileName );
-            return memberDao.doPostSignup( memberDto );
+        /*
+            만약에
+                1. 첨부파일 있다 vs 없다
+                    있다[ 업로드 성공 했다 vs 실패 했다 ]
+                        성공 db처리
+                        실패 무산 false
+                    없다
+                        db처리
+         */
+        // 1. 파일 처리   // 만약에 첨부파일 존재하면
+        String fileName = "default.jpg";
+        if( !memberDto.getImg().isEmpty() ){
+            fileName = fileService.fileUpload( memberDto.getImg() );
+            if( fileName == null ) {
+                return false; // 업로드 실패 했으면 회원가입 실패
+            }
         }
-        return false;
+        memberDto.setUuidFile(fileName);  // 2. DB 처리  // dto에 업로드 성공한 파일명을 대입한다.
+        return memberDao.doPostSignup( memberDto );
     } // end
 
     // 2. 로그인 서비스
