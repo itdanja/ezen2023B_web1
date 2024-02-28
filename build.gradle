@@ -28,7 +28,8 @@ dependencies { // 여기에 외부 라이브러리 설치 코드 https://start.s
 	// 4.롬복
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-
+	// 5. email sender : smtp
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 tasks.named('test') {
