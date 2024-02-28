@@ -1,8 +1,12 @@
 {{>ezenweb/header}}
     <h3> 회원가입 페이지 </h3>
     <form class="signUpForm">
-<!--    <div>-->
-        아이디 : <input  type="text" id="id" name="id" /> <br/>
+
+
+        <div> 아이디 </div>
+            <input onkeyup="idcheck()" type="text" id="id" name="id" />
+        <div class="idcheckbox">유효성검사결과</div>
+
         비밀번호 : <input type="text" id="pw" name="pw" /> <br/>
         비밀번호 확인 : <input type="text" id="pwconfirm" name="pwconfirm"/> <br/>
         이름 : <input type="text" id="name" name="name"/> <br/>
@@ -18,7 +22,8 @@
 
         <button type="button" onclick="signup(  )">회원가입</button>
         <a href="/member/login">로그인</a>
-<!--    </div>-->
+
+
     </form>
     <script src="/js/member.js"></script>   <!-- {resources/static} /js/member.js -->
 {{>ezenweb/footer}}

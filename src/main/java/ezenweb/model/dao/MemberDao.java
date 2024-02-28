@@ -56,8 +56,36 @@ public class MemberDao extends  Dao {
         return memberDto;
     }
 
-
+    // 4 ============== 아이디 중복 체크 요청  ============
+    public boolean doGetFindIdCheck(  String id ){
+        try{
+            String sql = "select * from member where id = ? ";
+            ps = conn.prepareStatement(sql);
+            ps.setString( 1 , id );
+            rs = ps.executeQuery();
+            if( rs.next() ){  return true; }
+        }catch (Exception e ){   System.out.println("e = " + e);}
+        return false;
+    }
 } // class e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

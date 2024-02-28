@@ -1,0 +1,44 @@
+
+                --------HTTP 요청 -------->                               <-------빌드(JAVAC)---------
+클라이언트(브라우저)                             아파치 톰캣                                      개발자( 인텔리제이 )
+    유저        <--------HTTP 응답---------       ip 내컴퓨터:localhost / AWS / CAFE24              프로젝트 소스파일
+                                                port : 8080 또는 80
+                                                빌드된 프로젝트
+                                                \ezen2023B_web1\build                           \ezen2023B_web1\src
+
+
+                                                ^
+                                                |
+                                                |   JDBC
+                                                |
+                                                V
+
+                                                MYSQL SERVER
+                                                  ip 내컴퓨터:localhost  / AWS  / CAFE24
+                                                  port : 3306
+= 1. 업로드 =====================================================================================================================
+첨부파일 전송시
+1. 폼 가져온다
+    let signUpForm = document.querySelector('.signUpForm');
+2. 폼객체화
+    let signUpFormData = new FormData( signUpForm );
+3. AJAX 대용량 폼 전송 속성
+    data : signUpFormData ,
+    contentType  : false ,
+    processData  : false ,
+
+(스프링) 컨트롤러에서 첨부파일 매핑할때 = MultipartFile
+    전제조건 : Dto에 MultipartFile 타입 존재
+4.MultipartFile 객체를 서비스로 보낸다.
+5. 서비스가 MultipartFile 업로드 처리
+        // 1. [어디에] 첨부파일을 저장할 경로
+        File file = new File( 저장경로+파일명.확장자 );
+        // 2. [무엇을] 첨부파일 객체
+        multipartFile.transferTo( file );
+
+* 업로드된 파일명을 DB처리 ( 파일 자체를 DB처리 하지 않는다 )
+
+= 2. 다운로드 =====================================================================================================================
+
+
+

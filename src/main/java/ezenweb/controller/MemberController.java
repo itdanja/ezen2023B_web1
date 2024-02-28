@@ -77,7 +77,12 @@ public class MemberController {
         return memberService.doGetLoginInfo( id ); // 서비스 요청과 응답 전달
     }
 
-
+    // 4 ============== 아이디 중복 체크 요청  ============
+    @GetMapping("/member/find/idcheck")
+    @ResponseBody
+    public boolean doGetFindIdCheck( @RequestParam String id ){
+        return memberService.doGetFindIdCheck( id );
+    }
 
 
 
