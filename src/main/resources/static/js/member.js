@@ -12,7 +12,11 @@
             /^      : 정규표현식 시작 알림.
             $/      : 정규표현식 끝 알림 
             { 최소길이 , 최대길이 }    : 허용 문자 길이 규칙
-            [ 허용할 문자/숫자 ]             : 허용 문자 규칙 규칙  
+            [ 허용할 문자/숫자 ]             : 허용 문자 규칙 규칙
+            1. [ a-z ]
+            2. [ A-Z ]
+            3. [ 0-9 ] , \d
+            4. [ !@#$% ]
                 [a-z]                   : 소문자 a ~ z 허용
                 [a-zA-Z]                : 영 대소문자 a ~ z 허용 
                 [a-zA-Z0-9]             : 영 대소문자 , 숫자 허용 
@@ -33,6 +37,14 @@
                 영 대소문자와숫자 조합의 5~30글자 허용 
             예3) (?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{5,30}
                 영 대소문자 1개 이상 필수 , 숫자 1개 이상 필수 
+            예4) /^[가-힣]{5,20}$/ 
+                한글 5~20글자
+            예5) 000-0000-0000 또는 00-000-0000
+                /^ ([0-9]{2,3})+[-]+([0-9]{3,4})+[-]+([0-9]{4}) $/
+            예6) 문자@문자.문자
+                qwe@naver.com , asdas@kakao.net
+                /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/
+
 */
 
 // ******* 현재 유효성검사 체크 현황 
@@ -69,34 +81,70 @@ function idcheck(){   console.log('idcheck()');
     }
 } // f end 
 
-// 5. 
+// 5. 패스워드 유효성검사 
 function pwcheck(){ console.log( "pwcheck()");
     // 1. 입력값 가져온다.
     let pw = document.querySelector('#pw').value;
     let pwconfirm = document.querySelector('#pwconfirm').value;
-    // 2. 유효성검사 
-    let msg = "통과";
+    // 2. 유효성검사 결과 메시지
+    let msg = "";
+    checkArray[1] = false; 
         // 1. 비밀번호에 대한 정규표현식 : 영대소문자 1개 필수 와 숫자 1개 필수 의 조합 5~30글자
         let 비밀번호규칙 = /^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z0-9]{5,30}$/
-        // 2. 
-        if( 비밀번호규칙.test(pw) ){        // 비밀번호 정규식 검사 
-            // 3. 
-            if( 비밀번호규칙.test(pwconfirm) ){ // 비밀번호확인 정규식 검사
-                // 4.
-                if( pw == pwconfirm ){  // 일치 
-                    msg = "통과";
-                }else{
-                    msg = "패스워드 불일치";
-                }
-            }else{
-                msg = "영대소문자 1개 필수 와 숫자 1개 필수 의 조합 5~30글자";
-            }
-        }else{
-            msg = "영대소문자 1개 필수 와 숫자 1개 필수 의 조합 5~30글자";
-        }
-    // 
+        if( 비밀번호규칙.test(pw) ){        //  // 2.  비밀번호 정규식 검사 
+            if( 비밀번호규칙.test(pwconfirm) ){ // // 3. 비밀번호확인 정규식 검사
+                if( pw == pwconfirm ){   msg = "통과"; checkArray[1] = true; } // 4. 일치
+                else{    msg = "패스워드 불일치"; }
+            }else{ msg = "영대소문자 1개 필수 와 숫자 1개 필수 의 조합 5~30글자"; }
+        }else{  msg = "영대소문자 1개 필수 와 숫자 1개 필수 의 조합 5~30글자";   }
     document.querySelector('.pwcheckbox').innerHTML = msg;
+} // f end 
+// 6. 이름 유효성검사 : 한글 5~20
+function namecheck(){
+    let name = document.querySelector('#name').value; // 1. 입력값 가져온다.
+    let 이름규칙 = /^[가-힣]{5,20}$/            // 2. 정규표현식 작성한다.
+    let msg = '';                              
+    checkArray[2] = false;
+    if( 이름규칙.test( name ) ){                // 3. 정규표현식 검사한다. 
+        msg = '통과'; checkArray[2] = true;     // 4. 정규표현식 검사가 일치했을떄.
+    }
+    else{   msg = '한글 5~20글자'; }
+    document.querySelector('.namecheckbox').innerHTML = msg;
 }
+// 7. 전화번호 유효성검사 : 000-0000-0000 또는 00-000-0000      // 중복검사
+function phonecheck(){
+    let phone = document.querySelector('#phone').value;
+    let 전화번호규칙 = /^([0-9]{2,3})+[-]+([0-9]{3,4})+[-]+([0-9]{4})+$/
+    
+    let msg = '000-0000-0000 또는 00-000-0000 입력해주세요';
+    checkArray[3] = false;
+    
+    if( 전화번호규칙.test(phone) ){
+        msg = '통과'; checkArray[3] = true;
+    }
+    document.querySelector('.phonecheckbox').innerHTML = msg;
+}
+// 8. 이메일 유효성검사. 문자@문자.문자 , 인증 통한 검토.           // 중복검사
+function emailcheck(){
+    let email = document.querySelector('#email').value;
+    let 이메일규칙 = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+\.[a-zA-Z]+$/
+    
+    let msg = '아이디@도메인 입력해주세요.'
+    checkArray[4] = false;
+    if( 이메일규칙.test( email ) ){
+        msg= "통과"; checkArray[4]=true;
+    }
+    document.querySelector('.emailcheckbox').innerHTML = msg;
+}
+
+
+
+
+
+
+
+
+
 
 // 2. 로그인
 function login(){
