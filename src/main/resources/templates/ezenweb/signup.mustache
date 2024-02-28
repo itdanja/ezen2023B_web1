@@ -7,10 +7,15 @@
             <input onkeyup="idcheck()" type="text" id="id" name="id" />
         <div class="idcheckbox">유효성검사결과</div>
 
-        비밀번호 : <input type="text" id="pw" name="pw" /> <br/>
-        비밀번호 확인 : <input type="text" id="pwconfirm" name="pwconfirm"/> <br/>
+        <div> 비밀번호 </div>
+        <input onkeyup="pwcheck()"  type="text" id="pw" name="pw" />
+        
+        <div> 비밀번호 확인 </div>
+        <input onkeyup="pwcheck()"  type="text" id="pwconfirm" name="pwconfirm"/>
+        <div class="pwcheckbox">유효성검사결과</div>
+
         이름 : <input type="text" id="name" name="name"/> <br/>
-        전화번호 : <input type="text" id="phone" name="phone" /> <br/>
+        전화번호 : <input onkeyup="phonecheck()" type="text" id="phone" name="phone" /> <br/>
         이메일 : <input type="text" id="email" name="email" /> <br/>
 
         프로필 사진 :
