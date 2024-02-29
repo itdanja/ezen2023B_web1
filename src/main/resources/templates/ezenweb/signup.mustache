@@ -1,47 +1,48 @@
 {{>ezenweb/header}}
-    <h3> 회원가입 페이지 </h3>
-    <form class="signUpForm">
+    <div class="container">
+        <form class="signUpForm">
 
-        <div> 아이디 </div>
-            <input onkeyup="idcheck()" type="text" id="id" name="id" />
-        <div class="idcheckbox"></div>
+            <h3> 회원가입 페이지 </h3>
+            <p> 회원가입을 통해 다양한 이벤트에 참여하세요. </p>
 
-        <div> 비밀번호 </div>
-        <input onkeyup="pwcheck()"  type="text" id="pw" name="pw" />
-        
-        <div> 비밀번호 확인 </div>
-        <input onkeyup="pwcheck()"  type="text" id="pwconfirm" name="pwconfirm"/>
-        <div class="pwcheckbox"></div>
+            <div class="label"> 아이디 </div>
+                <input onkeyup="idcheck()" type="text" id="id" name="id" />
+            <div class="idcheckbox checkbox"></div>
 
-        <div> 이름 </div>
-        <input onkeyup="namecheck()" type="text" id="name" name="name"/> 
-        <div class="namecheckbox"></div>
+            <div class="label"> 비밀번호 </div>
+            <input onkeyup="pwcheck()"  type="text" id="pw" name="pw" />
+            
+            <div class="label"> 비밀번호 확인 </div>
+            <input onkeyup="pwcheck()"  type="text" id="pwconfirm" name="pwconfirm"/>
+            <div class="pwcheckbox checkbox"></div>
 
-        <div> 전화번호 </div>
-        <input onkeyup="phonecheck()" type="text" id="phone" name="phone" />
-        <div class="phonecheckbox"></div>
+            <div class="label"> 이름 </div>
+            <input onkeyup="namecheck()" type="text" id="name" name="name"/> 
+            <div class="namecheckbox checkbox"></div>
 
-        <div> 이메일 </div>
-        <div class="emailbox">
-            <input onkeyup="emailcheck()" type="text" id="email" name="email" />
-            <button type="button" 
-                class="authreqbtn" 
-                onclick="authreq( )" disabled > 인증요청 </button>
-        </div>
-        
-        <div class="authbox"> </div>
-        
-        
-        <div class="emailcheckbox"></div>
+            <div class="label"> 전화번호 </div>
+            <input onkeyup="phonecheck()" type="text" id="phone" name="phone" />
+            <div class="phonecheckbox checkbox"></div>
 
-        <div> 프로필 사진 </div>
-        <input onchange="onChangeImg( this )" type="file" id="img"
-               name="img" accept="image/*" /> <br/>
-        <div><img id="preimg" src="/img/default.jpg" /> </div>
+            <div class="label"> 이메일 </div>
+            <div class="emailbox">
+                <input onkeyup="emailcheck()" type="text" id="email" name="email" />
+                <button type="button"  class="authreqbtn" onclick="authreq( )" disabled > 인증요청 </button>
+            </div>
+            <div class="authbox"> </div>
+            <div class="emailcheckbox checkbox" ></div>
 
-        <button type="button" onclick="signup(  )">회원가입</button>
-        <a href="/member/login">로그인</a>
-        
-    </form>
-    <script src="/js/member.js"></script>   <!-- {resources/static} /js/member.js -->
+            <div class="label"> 프로필 사진 </div>
+            <input onchange="onChangeImg( this )" type="file" id="img"
+                name="img" accept="image/*" /> <br/>
+            
+            <div class="preimgbox">
+                <img id="preimg" src="/img/default.jpg" />
+            </div>
+
+            <button class="signupbtn" type="button" onclick="signup(  )">회원가입</button>
+            <a class="loginbtn" href="/member/login"> << 로그인</a>
+        </form>
+    </div>
+    <script src="/js/member.js"></script>   
 {{>ezenweb/footer}}
