@@ -5,17 +5,17 @@
     - 단점 : 많이 사용하면 웹 서버에 과부하.
     - 메소드
         HttpServletRequest request 객체
-        1. 세션 객체 호출
+        1. 세션 객체( 타입 : Object ) 호출
             request.getSession()
         2. 세션 객체의 속성 추가
             request.getSession().setAttribute( "key", value );
-        3. 세션 객체의 속성 호출
+        3. 세션 객체의 속성 호출( 캐스팅 필요 )
             request.getSession().getAttribute("key")
         4. 세션 객체의 속성들을 초기화
             request.getSession().invalidate();
             - 특정 속성 값만 초기화
             request.getSession().setAttribute( "key", null );
-        5. 세션 객체의 속성들의 데이터 생명주기
+        5. 세션 객체의 속성들의 데이터 생명주기( 초 단위 )
             request.getSession().setMaxInactiveInterval( 생명시간 );
 
 ============================================================================

@@ -2,7 +2,6 @@
     <h3> 회원가입 페이지 </h3>
     <form class="signUpForm">
 
-
         <div> 아이디 </div>
             <input onkeyup="idcheck()" type="text" id="id" name="id" />
         <div class="idcheckbox"></div>
@@ -23,7 +22,16 @@
         <div class="phonecheckbox"></div>
 
         <div> 이메일 </div>
-        <input onkeyup="emailcheck()"type="text" id="email" name="email" /> <br/>
+        <div class="emailbox">
+            <input onkeyup="emailcheck()" type="text" id="email" name="email" />
+            <button type="button" 
+                class="authreqbtn" 
+                onclick="authreq( )" disabled > 인증요청 </button>
+        </div>
+        
+        <div class="authbox"> </div>
+        
+        
         <div class="emailcheckbox"></div>
 
         <div> 프로필 사진 </div>

@@ -38,15 +38,9 @@ public class MemberService {
         memberDto.setUuidFile(fileName);  // 2. DB 처리  // dto에 업로드 성공한 파일명을 대입한다.
         boolean result =  memberDao.doPostSignup( memberDto );
 
-        // * 이메일 테스트
-        if( result ){   emailService.send();   }
         return result;
 
     } // end
-
-    @Autowired
-    private EmailService emailService;
-
 
     // 2. 로그인 서비스
 

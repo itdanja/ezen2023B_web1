@@ -131,11 +131,128 @@ function emailcheck(){
     
     let msg = '아이디@도메인 입력해주세요.'
     checkArray[4] = false;
+    authreqbtn.disabled = true; // 인증요청 버튼 사용금지
+
     if( 이메일규칙.test( email ) ){
-        msg= "통과"; checkArray[4]=true;
+        authreqbtn.disabled = false;  // 인증요청 버튼 사용
+        msg = '인증요청가능';
     }
+
     document.querySelector('.emailcheckbox').innerHTML = msg;
 }
+
+let timer = 0; // 인증 시간 
+let authbox = document.querySelector('.authbox'); // 1. 인증 구역 
+let authreqbtn = document.querySelector('.authreqbtn'); // 2. 인증요청 버튼 
+let timerInter = null;
+// 9. 인증요청 
+function authreq( object ){
+    // 2. 인증 구역 구성 
+    let html = `<span class="timebox"> 00 : 00 </span>
+                <input type="text" class="ecodeinput" />
+                <button onclick="auth()" type="button" >인증</button>`;
+    // 3. 인증 구역 출력 
+    authbox.innerHTML = html;
+    // == 자바에게 인증 요청 ============================================== //
+    $.ajax({
+        url : "/auth/email/req" ,
+        method : "get",
+        data : { "email" : document.querySelector('#email').value } ,
+        success : (r)=>{
+            if( r ){
+                // 4. 타이머 함수 실행 
+                timer = 10; // 인증 시간 대입 
+                ontimer(); // 타이머 함수 실행 
+                authreqbtn.disabled  = true ; // 해당 버튼 사용 금지 
+            }else{
+                alert('관리자에게문의');
+            }
+        }
+    });
+    // ================================================ //
+}; 
+// 10. 타이머 함수 
+function ontimer(){
+    timerInter = setInterval( ()=>{
+        // 1. 초 변수를 분/초 변환 
+        let m = parseInt( timer / 60 ); // 분 
+        let s = parseInt( timer % 60 ); // 분 제외한 초 
+        // 2. 시간을 두 자릿수로 표현 
+        m = m < 10 ? "0"+m : m ;    // 8분 -> 08분 
+        s = s < 10 ? "0"+s : s ;    // 3초 -> 03초 
+        // 3. 시간 출력 
+        document.querySelector('.timebox').innerHTML = `${m} : ${s} `;
+        // 4. 초 감소 
+        timer--;
+        // 5. 만약에 초가 0보다 작아지면 
+        if( timer < 0 ){ //
+            clearInterval( timerInter );
+            authbox.innerHTML = `다시 인증 요청 해주세요`;         // 인증 구역 없애기 
+            authreqbtn.disabled = false; // 해당 버튼 사용 
+        }
+    } , 1000 );
+}
+// 11. 인증 함수. 
+function auth(){
+    // 1. 내가 입력한 인증번호 
+    let ecodeinput = document.querySelector('.ecodeinput').value;
+    // == 내가 입력한 인증번호를 자바에게 보내기 = //
+    $.ajax({
+        url : "/auth/email/check" ,  method : "get" ,
+        data : { 'ecodeinput' : ecodeinput } ,
+        success : (r) => {
+            // 3. 성공시 / 실패시
+            if( r ){
+                checkArray[4]=true; // 유효성검사 통과 
+                document.querySelector('.emailcheckbox').innerHTML = '통과';
+                clearInterval( timerInter );
+                authbox.innerHTML = ``;         // 인증 구역 없애기 
+                authreqbtn.disabled = false; // 해당 버튼 사용 
+            }else{
+                alert('인증번호가 다릅니다, 또는 인증세션 시간 초과');
+            }
+        } 
+    })
+    // ===============================================// 
+}
+
+
+
+// 테스트
+    // 정의 : setInterval( 함수 , 밀리초 ) : 특정 밀리초 마다 함수 실행 
+    // 종료 : clearInterval( 종료할Interval변수 ) : 종료할 Interval의 변수 대입
+// let timer = 10; // 초
+// let timerInter = setInterval( ()=>{
+
+//     // 1. 초 변수를 분/초 변환 
+//     let m = parseInt( timer / 60 ); // 분 
+//     let s = parseInt( timer % 60 ); // 분 제외한 초 
+    
+//     // 2. 시간을 두 자릿수로 표현 
+//     m = m < 10 ? "0"+m : m ;    // 8분 -> 08분 
+//     s = s < 10 ? "0"+s : s ;    // 3초 -> 03초 
+
+//     // 3. 시간 출력 
+//     document.querySelector('.authbox').innerHTML = `${m}분${s}초`;
+
+//     // 4. 초 감소 
+//     timer--;
+
+//     // 5. 만약에 초가 0보다 작아지면 
+//     if( timer < 0 ){ //
+//         clearInterval( timerInter );
+//     }
+
+// } , 1000 );
+
+
+
+
+
+
+
+
+
 
 
 
