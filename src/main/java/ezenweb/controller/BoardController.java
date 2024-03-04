@@ -1,12 +1,15 @@
 package ezenweb.controller;
 
 import ezenweb.model.dto.BoardDto;
+import ezenweb.model.dto.BoardPageDto;
 import ezenweb.service.BoardService;
 import ezenweb.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/board") // 공통 URL
@@ -35,7 +38,14 @@ public class BoardController {
         boardDto.setMno( mno );
         return boardService.doPostBoardWrite( boardDto );
     }
-    // 2. 전체 글 출력 호출               /board.do             get            x , 페이징처리 , 검색
+    // 2. 전체 글 출력 호출               /board/do             get            x , 페이징처리 , 검색
+    @GetMapping("/do")
+    @ResponseBody
+    public BoardPageDto doGetBoardViewList(int page , int listSize , int bcno   ) {
+        System.out.println("BoardController.doGetBoardView");
+        return boardService.doGetBoardViewList( page  , listSize , bcno  );
+    }
+
 
     // 3. 개별 글 출력 호출               /board/view.do         get           게시물번호      dto
     @GetMapping("/view.do")

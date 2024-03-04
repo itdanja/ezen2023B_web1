@@ -12,7 +12,7 @@ public class FileService {
     // Service : Controller <--  Service(비지니로직) --> Dao ,  Controller <--> Service(비지니로직)
 
     // 어디에(PATH) 누구를(파일객체 MultipartFile )
-    String uploadPath = "C:\\Users\\504-t\\Desktop\\ezen2023B_web1\\build\\resources\\main\\static\\img\\";
+    String uploadPath = "C:\\Users\\MSI\\ezen2023B_web1\\build\\resources\\main\\static\\img\\";
 
     // 1. 업로드 서비스 메소드
     public String fileUpload( MultipartFile multipartFile){

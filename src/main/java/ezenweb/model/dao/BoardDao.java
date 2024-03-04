@@ -4,6 +4,8 @@ import ezenweb.model.dto.BoardDto;
 import org.springframework.stereotype.Component;
 
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class BoardDao extends Dao {
@@ -26,20 +28,59 @@ public class BoardDao extends Dao {
         }catch (Exception e ){   System.out.println("e = " + e);    }
         return 0; // 실패시 0
     }
+
+    public int doGetBoardViewListCount(  int bcno  ) {
+
+        try{
+            String subSql = bcno !=0 ? " where b.bcno = "+bcno : "";
+            String sql ="select count(*) from board b inner join member m on b.mno = m.no " +  subSql;
+            ps =conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if ( rs.next() ){ return rs.getInt(1);   }
+        }catch (Exception e ){  System.out.println("e = " + e);   }
+        return 0;
+    }
+
+
     // 2. 전체 글 출력 호출
+    public List<BoardDto> doGetBoardViewList( int startRow , int listSize , int bcno ) {
+
+        BoardDto boardDto = null;
+        List<BoardDto> list = new ArrayList<>();
+        try{
+            String subSql = bcno !=0 ? " where b.bcno = "+bcno : "";
+            String sql ="select * from board b inner join member m on b.mno = m.no "+subSql+" order by b.bdate desc limit ? , ? ";
+            ps =conn.prepareStatement(sql);
+            ps.setInt( 1  , startRow );
+            ps.setInt( 2 , listSize );
+
+            rs = ps.executeQuery();
+
+            while ( rs.next() ){
+                boardDto = new BoardDto( rs.getLong( "bno" ) , rs.getString( "btitle" ) ,
+                        rs.getString( "bcontent" ) , rs.getString( "bfile" ) ,
+                        rs.getLong("bview") , rs.getString("bdate") ,
+                        rs.getLong("mno") , rs.getLong("bcno") , null ,
+                        rs.getString("id") , rs.getString( "img") );
+                list.add( boardDto );
+            }
+        }catch (Exception e ){  System.out.println("e = " + e);   }
+        return list;
+    }
 
     // 3. 개별 글 출력 호출
     public BoardDto doGetBoardView(int bno ) { System.out.println("BoardDao.doGetBoardView");
         BoardDto boardDto = null;
         try{
-            String sql ="select * from board where bno = ? ";
+            String sql ="select * from board b inner join member m on b.mno = m.no where b.bno = ? ";
             ps =conn.prepareStatement(sql);
             ps.setLong( 1 , bno );       rs = ps.executeQuery();
             if( rs.next() ){
                 boardDto = new BoardDto( rs.getLong( "bno" ) , rs.getString( "btitle" ) ,
                         rs.getString( "bcontent" ) , rs.getString( "bfile" ) ,
                         rs.getLong("bview") , rs.getString("bdate") ,
-                        rs.getLong("mno") , rs.getLong("bcno") , null );
+                        rs.getLong("mno") , rs.getLong("bcno") ,null ,
+                        rs.getString("id") , rs.getString( "img") );
             }
         }catch (Exception e ){  System.out.println("e = " + e);   }
         return boardDto;
