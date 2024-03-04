@@ -1,4 +1,4 @@
-package ezenweb.Service;
+package ezenweb.service;
 
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;

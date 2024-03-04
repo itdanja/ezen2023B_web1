@@ -1,6 +1,6 @@
 package ezenweb.controller;
 
-import ezenweb.Service.MemberService;
+import ezenweb.service.MemberService;
 import ezenweb.model.dao.MemberDao;
 import ezenweb.model.dto.LoginDto;
 import ezenweb.model.dto.MemberDto;
@@ -8,10 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.util.UUID;
 
 
 // 1단계. V<---->C 사이의 HTTP 통신 방식 설계

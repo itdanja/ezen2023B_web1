@@ -1,7 +1,6 @@
 package ezenweb.controller;
 
-import ezenweb.Service.EmailService;
-import jakarta.servlet.http.HttpServlet;
+import ezenweb.service.EmailService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
