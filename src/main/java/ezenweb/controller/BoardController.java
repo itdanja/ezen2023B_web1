@@ -22,18 +22,17 @@ public class BoardController {
     // 1. 글쓰기 처리                    /board/write.do       post          Dto         true/false
     @PostMapping("/write.do")
     @ResponseBody
-    public boolean doPostBoardWrite( BoardDto boardDto){
+    public long doPostBoardWrite( BoardDto boardDto){
         System.out.println("BoardController.doPostBoardWrite");
         // 1. 현재 로그인된 세션( 톰캣서버(자바프로그램) 메모리(JVM) 저장소 ) 호출
         Object object = request.getSession().getAttribute("loginDto");
-        if( object == null ) return false;
+        if( object == null ) return -2; // 세션없다(로그인 안했다.)
         // 2. 형변환
         String mid = (String) object;
         // 3. mid를 mno 찾아오기
         long mno = memberService.doGetLoginInfo( mid ).getNo();
         // 4. 작성자번호 대입
         boardDto.setMno( mno );
-
         return boardService.doPostBoardWrite( boardDto );
     }
     // 2. 전체 글 출력 호출               /board.do             get            x , 페이징처리 , 검색
@@ -65,7 +64,31 @@ public class BoardController {
     }
 
     // 3. 게시판 상세 페이지 이동        /board/view         GET
-
+    @GetMapping("/view")
+    public String getBoardView( int bno ){
+        return "ezenweb/board/view";
+    }
     // 4. 글수정 페이지 이동            /board/update       GET
 
 } // class end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

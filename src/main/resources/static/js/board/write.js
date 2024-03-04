@@ -11,8 +11,18 @@ function onWrite(){ console.log( "onWrite()");
         data : boardWriteFormData ,
         contentType : false,
         processData : false,
-        success : (r)=>{
-            console.log( r );
+        success : (r)=>{  console.log( r );
+            if( r == 0 ){
+                alert('글쓰기 실패:관리자에게문의(DB오류)');
+            }else if( r == -1 ) {
+                alert('글쓰기 실패:관리자에게문의(첨부파일 오류)');
+            }else if( r == -2 ) {
+                alert('로그인 세션이 존재하지 않습니다(잘못된접근)');
+                location.href="/member/login";
+            }else if( r >= 1 ){
+                alert('글쓰기 성공');
+                location.href='/board/view?bno='+r;
+            }
         }
     }); // ajax end
 }
