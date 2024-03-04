@@ -1,3 +1,15 @@
+
+// 썸머노트 실행
+$(document).ready(function() {
+  // 썸머노트 옵션객체
+  let option = {
+    lang : 'ko-KR' , // 한글패치
+    height : 500  // 에디터 세로 크기
+  }
+  $('#summernote').summernote( option );
+
+});
+
 //1. 글쓰기
 function onWrite(){ console.log( "onWrite()");
     // 1. 폼DOM 가져온다.
