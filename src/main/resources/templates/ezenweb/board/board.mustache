@@ -2,10 +2,43 @@
     <div class="container">
 
         <h3> 게시판 </h3>
-        <a href="/board/write">글쓰기</a>
+
+        <!-- 2. 상단 부가 버튼 -->
+        <div class="boardtopetc">
+            <div>
+                <select class="bbtn listsize" onchange="onListSize()">	<!-- 하나의 페이지에 표시할 최대 게시물수 -->
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+                <span class="boardcount"> 전체 게시물수 : 13 </span> <!-- 전체 게시물 수 -->
+                <span class="boardCategory"> 현재 카테고리 : 전체 </span> <!-- 전체 게시물 수 -->
+            </div>
+            <a class="bbtn" href="/board/write">글쓰기</a>
+        </div>
+
+        <!-- 3. 카테고리 구역  -->
+        <div class="boardcategorybox">
+            <button onclick="onCategory(0)" class="bbtn categoryActive" type="button"> 전체보기 </button>
+            <button onclick="onCategory(1)" class="bbtn" type="button"> 자유 </button>
+            <button onclick="onCategory(2)" class="bbtn" type="button"> 노하우 </button>
+        </div>
+
+        <!-- 검색 -->
+        <div id="boardBottom">
+            <select class=" bbtn key">	<!-- 검색할 필드명 -->
+                <!-- value="SQL에서 사용할 필드명 기준" -->
+                <option value="b.btitle" >제목</option>
+                <option value="b.bcontent" >내용</option>
+                <option value="m.mid">작성자</option>
+            </select>
+            <input class="keyword" type="text"> <!-- 검색 내용 -->
+            <button onclick="onSearch()" class="bbtn" type="button">검색</button>
+        </div>
+
 
         <!-- 테이블 -->
-        <table class="table table-striped table-hover align-middle">
+        <table class="table table-hover align-middle">
             <thead>
                 <tr>
                     <th scope="col"  style="width:5%"; >번호</th>
@@ -26,6 +59,8 @@
                 <!-- JS가 페이지버튼을 넣어주는 위치 -->
             </ul>
         </nav>
+
+
 
     </div>
     <script src="/js/board/board.js"></script>

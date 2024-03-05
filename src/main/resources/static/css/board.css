@@ -1,0 +1,35 @@
+/* 3. 하단 구역 */
+#boardBottom{
+	border-bottom : 1px solid #e8e8e8;
+	padding-bottom: 30px; margin: 50px 0px;
+	text-align: center;
+}
+
+#boardBottom .keyword{
+	border: 1px solid #e8e8e8; padding: 5px 10px;
+	border-radius : 10px; width: 200px;
+}
+
+.boardtop{ text-align: center; }
+.boardtopetc{
+	display: flex; justify-content: space-between; margin: 20px 0px;
+}
+.boardcategorybox{ margin : 15px 0px;}
+.bbtn{
+	border: none; background-color: #5e6697;	color: white;
+	width: 90px; padding: 5px 20px; border-radius: 8px;
+	font-size: 15px;     text-align: center;
+}
+.boardcount{ margin-left: 20px; }
+
+.page-link{ color:black !important; }
+.active > .page-link{
+    background-color: #051471 !important;
+    color : white !important;
+}
+.boardCategory{
+    margin-left : 20px;
+}
+.categoryActive{
+    background-color : #051471;
+}

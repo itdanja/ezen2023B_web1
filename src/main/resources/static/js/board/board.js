@@ -48,3 +48,24 @@ function doViewList( page ){   console.log( "doViewList()");
     }); // ajax end
     return;
 }
+
+// 3. 카테고리 버튼을 클릭했을때.
+function onCategory( bcno ){ 	console.log('클릭된 카테고리 : ' + bcno );
+	pageOject.bcno = bcno; // 조회 조건객체내 카테고리번호를 선택한 카테고리로 변경
+	pageOject.key = ''; pageOject.keyword = '' // 검색해제
+	getList(1); // 조건이  변경되었기 때문에 다시 출력[ 재렌더링/새로고침 ]
+} // f end
+
+// 4. 한페이지 최대 표시할 개수를 변경했을때.
+function onListSize(){
+	pageOject.listsize=document.querySelector('.listsize').value; // 선택된 게시물수를 조회조건객체 저장
+	getList(1); // 조건이  변경되었기 때문에 다시 출력[ 재렌더링/새로고침 ]
+} // f end
+
+
+// 5. 검색 버튼을 클릭했을때.
+function onSearch(){
+	pageOject.key = document.querySelector('.key').value;
+	pageOject.keyword = document.querySelector('.keyword').value;
+	getList(1);
+} // f end
