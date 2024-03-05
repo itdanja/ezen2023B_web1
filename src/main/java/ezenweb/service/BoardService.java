@@ -2,6 +2,7 @@ package ezenweb.service;
 
 import ezenweb.model.dao.BoardDao;
 import ezenweb.model.dto.BoardDto;
+import ezenweb.model.dto.BoardPageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,17 +29,25 @@ public class BoardService {
         return boardDao.doPostBoardWrite( boardDto );
     }
     // 2. 전체 글 출력 호출
-    public List<BoardDto> doGetBoardViewList( int page ){   System.out.println("BoardService.doGetBoardViewList");
-
+    public BoardPageDto doGetBoardViewList( int page ){   System.out.println("BoardService.doGetBoardViewList");
         // 페이지처리시 사용할 SQL 구문 : limit 시작레코드번호(0부터) , 출력개수
-
         // 1. 페이지당 게시물을 출력할 개수          [ 출력개수 ]
-        int pageBoardSize = 5;
-
+        int pageBoardSize = 2;
         // 2. 페이지당 게시물을 출력할 시작 레코드번호. [ 시작레코드번호(0부터) ]
         int startRow = ( page-1 ) * pageBoardSize;
+        // 3. 총 페이지수
+            // 1. 전체 게시물수
+        int totalBoardSize = boardDao.getBoardSize();
+            // 2. 총 페이지수 계산 ( 나머지값이 존재하면 +1 )
+        int totalPage = totalBoardSize % pageBoardSize == 0 ?
+                        totalBoardSize / pageBoardSize :
+                        totalBoardSize / pageBoardSize + 1 ;
+        // 4. 게시물 정보 요청
+        List<BoardDto> list = boardDao.doGetBoardViewList( startRow , pageBoardSize );
 
-        return boardDao.doGetBoardViewList( startRow , pageBoardSize );
+        // pageDto 구성
+        BoardPageDto boardPageDto = new BoardPageDto( page , totalPage , list  );
+        return boardPageDto;
     }
 
 

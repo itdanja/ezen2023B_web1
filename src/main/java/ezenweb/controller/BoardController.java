@@ -1,6 +1,7 @@
 package ezenweb.controller;
 
 import ezenweb.model.dto.BoardDto;
+import ezenweb.model.dto.BoardPageDto;
 import ezenweb.service.BoardService;
 import ezenweb.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -40,8 +41,7 @@ public class BoardController {
     // 2. 전체 글 출력 호출               /board/do             get            x , 페이징처리 , 검색
     @GetMapping("/do")  // (쿼리스트링)매개변수 : 현재페이지
     @ResponseBody
-    public List<BoardDto> doGetBoardViewList( int page ){System.out.println("BoardController.doGetBoardViewList");
-
+    public BoardPageDto doGetBoardViewList(int page ){System.out.println("BoardController.doGetBoardViewList");
         return  boardService.doGetBoardViewList( page );
     }
 
