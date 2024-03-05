@@ -4,6 +4,8 @@ import ezenweb.model.dto.BoardDto;
 import org.springframework.stereotype.Component;
 
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class BoardDao extends Dao {
@@ -27,19 +29,43 @@ public class BoardDao extends Dao {
         return 0; // 실패시 0
     }
     // 2. 전체 글 출력 호출
+    public List<BoardDto> doGetBoardViewList( int startRow , int pageBoardSize  ){ System.out.println("BoardDao.doGetBoardViewList");
+        BoardDto boardDto = null;   List<BoardDto> list = new ArrayList<>();
+        try{  // String sql = "select * from board";
 
+            String sql = "select * from board b inner join member m " +
+                    " on b.mno = m.no " +
+                    " order by b.bdate desc " +
+                    " limit ? , ?";
+
+            ps =conn.prepareStatement(sql);
+            ps.setInt( 1 , startRow );
+            ps.setInt( 2 , pageBoardSize );
+
+            rs = ps.executeQuery();
+            while ( rs.next() ){
+                boardDto = new BoardDto( rs.getLong( "bno" ) , rs.getString( "btitle" ) ,
+                        rs.getString( "bcontent" ) , rs.getString( "bfile" ) ,
+                        rs.getLong("bview") , rs.getString("bdate") ,
+                        rs.getLong("mno") , rs.getLong("bcno") , null ,
+                        rs.getString("id") , rs.getString("img") );
+                list.add( boardDto );
+            }
+        }catch (Exception e ){ System.out.println("e = " + e);  }
+        return list;
+    }
     // 3. 개별 글 출력 호출
     public BoardDto doGetBoardView(int bno ) { System.out.println("BoardDao.doGetBoardView");
         BoardDto boardDto = null;
-        try{
-            String sql ="select * from board where bno = ? ";
+        try{  String sql ="select * from board b inner join member m on b.mno = m.no where b.bno = ? ";
             ps =conn.prepareStatement(sql);
             ps.setLong( 1 , bno );       rs = ps.executeQuery();
             if( rs.next() ){
                 boardDto = new BoardDto( rs.getLong( "bno" ) , rs.getString( "btitle" ) ,
                         rs.getString( "bcontent" ) , rs.getString( "bfile" ) ,
                         rs.getLong("bview") , rs.getString("bdate") ,
-                        rs.getLong("mno") , rs.getLong("bcno") , null );
+                        rs.getLong("mno") , rs.getLong("bcno") , null ,
+                        rs.getString("id") , rs.getString("img") );
             }
         }catch (Exception e ){  System.out.println("e = " + e);   }
         return boardDto;

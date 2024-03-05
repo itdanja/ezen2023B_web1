@@ -5,6 +5,8 @@ import ezenweb.model.dto.BoardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BoardService {
 
@@ -26,6 +28,19 @@ public class BoardService {
         return boardDao.doPostBoardWrite( boardDto );
     }
     // 2. 전체 글 출력 호출
+    public List<BoardDto> doGetBoardViewList( int page ){   System.out.println("BoardService.doGetBoardViewList");
+
+        // 페이지처리시 사용할 SQL 구문 : limit 시작레코드번호(0부터) , 출력개수
+
+        // 1. 페이지당 게시물을 출력할 개수          [ 출력개수 ]
+        int pageBoardSize = 5;
+
+        // 2. 페이지당 게시물을 출력할 시작 레코드번호. [ 시작레코드번호(0부터) ]
+        int startRow = ( page-1 ) * pageBoardSize;
+
+        return boardDao.doGetBoardViewList( startRow , pageBoardSize );
+    }
+
 
     // 3. 개별 글 출력 호출
     public BoardDto doGetBoardView(int bno ) {
