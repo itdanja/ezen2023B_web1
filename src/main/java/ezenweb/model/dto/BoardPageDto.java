@@ -21,6 +21,13 @@ public class BoardPageDto {
     // 4. 페이지버튼의 끝번호
     private int endBtn;
 
+    private int totalBoardSize;
+
+    private int bcno;
+    private int pageBoardSize;
+    private String key;
+    private String keyword;
+
     // 실제 내용 //
     private List<BoardDto> list;
 }

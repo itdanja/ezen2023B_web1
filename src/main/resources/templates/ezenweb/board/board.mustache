@@ -6,13 +6,12 @@
         <!-- 2. 상단 부가 버튼 -->
         <div class="boardtopetc">
             <div>
-                <select class="bbtn listsize" onchange="onListSize()">	<!-- 하나의 페이지에 표시할 최대 게시물수 -->
+                <select class="bbtn pageBoardSize" onchange="onListSize()">	<!-- 하나의 페이지에 표시할 최대 게시물수 -->
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                 </select>
-                <span class="boardcount"> 전체 게시물수 : 13 </span> <!-- 전체 게시물 수 -->
-                <span class="boardCategory"> 현재 카테고리 : 전체 </span> <!-- 전체 게시물 수 -->
+                <span class=""> 게시물수 : <span class="boardcount">13</span> </span> <!-- 전체 게시물 수 -->
             </div>
             <a class="bbtn" href="/board/write">글쓰기</a>
         </div>
@@ -30,7 +29,7 @@
                 <!-- value="SQL에서 사용할 필드명 기준" -->
                 <option value="b.btitle" >제목</option>
                 <option value="b.bcontent" >내용</option>
-                <option value="m.mid">작성자</option>
+                <option value="m.id">작성자</option>
             </select>
             <input class="keyword" type="text"> <!-- 검색 내용 -->
             <button onclick="onSearch()" class="bbtn" type="button">검색</button>
