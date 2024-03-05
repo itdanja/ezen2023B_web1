@@ -43,6 +43,7 @@ function doViewList( page ){   console.log( "doViewList()");
                 pagehtml += `<li class="page-item"><a class="page-link" onclick="doViewList( ${ page+1 > r.totalPage ? r.totalPage : page+1 } )">다음</a></li>`
             // 3. 출력
             pagination.innerHTML = pagehtml;
+
         } // success end
     }); // ajax end
     return;
