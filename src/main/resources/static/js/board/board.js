@@ -35,7 +35,7 @@ function doViewList( page ){   console.log( "doViewList()");
                 // 이전 버튼 ( 만약에 현재페이지가 1페이지이면 1페이지 고정 )
                 pagehtml += `<li class="page-item"><a class="page-link" onclick="doViewList( ${ page-1 < 1 ? 1 : page-1 } )">이전</a></li>`
                 // 페이지번호 버튼 ( 1페이지부터 마지막페이지(totalPage)까지
-                for( let i = 1 ; i <= r.totalPage ; i++ ){
+                for( let i = r.startBtn ; i <= r.endBtn ; i++ ){
                     // + 만약에 i가 현재페이지와 같으면 active 클래스 삽입 아니면 생략 ( *조건부 렌더링 )
                     pagehtml += ` <li class="page-item ${ i == page ? 'active' : '' }"><a class="page-link" onclick="doViewList( ${ i } )"> ${ i } </a></li>`
                 }

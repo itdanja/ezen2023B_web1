@@ -16,7 +16,11 @@ public class BoardPageDto {
     private int page;
     // 2. 총 게시물수
     private int totalPage;
-    // 3. ----------------
+    // 3. 페이지버튼의 시작번호
+    private int startBtn;
+    // 4. 페이지버튼의 끝번호
+    private int endBtn;
+
     // 실제 내용 //
     private List<BoardDto> list;
 }

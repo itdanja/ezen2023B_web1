@@ -45,8 +45,22 @@ public class BoardService {
         // 4. 게시물 정보 요청
         List<BoardDto> list = boardDao.doGetBoardViewList( startRow , pageBoardSize );
 
+        // 5. 페이징 버튼 개수
+            // 1. 페이지버튼 최대 개수
+        int btnSize = 5;        // 5개씩
+            // 2. 페이지버튼 시작번호
+        int startBtn = (page-1)/btnSize*btnSize+1;   // 1번 버튼
+            // 3. 페이지버튼 끝번호
+        int endBtn = startBtn + btnSize - 1;         // 5번 버튼
+            // 만약에 페이지버튼의 끝번호가 총페이지수 보다는 커질수 없다.
+        if( endBtn >= totalPage ) endBtn = totalPage;
+
+        // int startbtn = (page-1)/btnsize*btnsize+1;
+
         // pageDto 구성
-        BoardPageDto boardPageDto = new BoardPageDto( page , totalPage , list  );
+        BoardPageDto boardPageDto = new BoardPageDto(
+                page , totalPage , startBtn , endBtn , list
+        );
         return boardPageDto;
     }
 
