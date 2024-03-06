@@ -94,7 +94,16 @@ public class BoardDao extends Dao {
         }catch (Exception e ){ System.out.println("e = " + e);  }
         return list;
     }
-    // 3. 개별 글 출력 호출
+    // 3-2. 개별 글 출력시 조회수 증가
+    public void boardViewIncrease( int bno ){
+        try{
+            String sql = "update board set bview = bview + 1 where bno = "+ bno;
+            ps = conn.prepareStatement(sql);
+            ps.executeUpdate();
+        }catch (Exception e ){  System.out.println("e = " + e); }
+    }
+
+    // 3-1. 개별 글 출력 호출
     public BoardDto doGetBoardView(int bno ) { System.out.println("BoardDao.doGetBoardView");
         BoardDto boardDto = null;
         try{  String sql ="select * from board b inner join member m on b.mno = m.no where b.bno = ? ";
@@ -110,6 +119,7 @@ public class BoardDao extends Dao {
         }catch (Exception e ){  System.out.println("e = " + e);   }
         return boardDto;
     }
+
     // 4. 글 수정 처리
 
     // 5. 글 삭제 처리

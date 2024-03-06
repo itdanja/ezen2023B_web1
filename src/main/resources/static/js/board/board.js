@@ -28,7 +28,8 @@ function doViewList( page ){   console.log( "doViewList()");
                 r.list.forEach( board => {
                     console.log( board );
                     html += `<tr>
-                                 <th> ${ board.bno }</th>       <td> ${ board.btitle } </td>
+                                 <th> ${ board.bno }</th>
+                                 <td> <a href="/board/view?bno=${ board.bno }">${ board.btitle }</a> </td>
                                  <td> <img src="/img/${ board.mimg }"
                                        style="width:20px; border-radius:50%;" /> ${ board.mid }
                                  </td>
@@ -78,7 +79,20 @@ function onBcno( bcno ){
     pageObject.keyword = '';
     document.querySelector('.key').value = 'b.btitle'
     document.querySelector('.keyword').value = '';
-    //
+    // 카테고리 활성화 css 적용 ( 해당 버튼에 categoryActive 클래스 대입 )
+    // 1. 모든 카테고리 버튼(querySelectorAll) 호출
+    let categoryBtns = document.querySelectorAll(".boardCategoryBox > button");
+    console.log( categoryBtns );
+    // 2. 선택된 카테고리번호(매개변수bcno) 에 class 대입
+        // dom객체.classList.add("새로운 클래스명")
+        // dom객체.classList.remove("제거할 클래스명")
+    // 1. 활성화 초기화
+    for( let i = 0 ; i < categoryBtns.length ; i++ ){
+        categoryBtns[i].classList.remove("categoryActive");
+    }
+    // 2.활성화 대입
+    categoryBtns[bcno].classList.add("categoryActive");
+    // 재출력
     doViewList( 1 );
 }
 // 4. 검색 함수

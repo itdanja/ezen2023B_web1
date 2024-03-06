@@ -1,0 +1,48 @@
+
+.active > .page-link{ /* 부트스트랩 css명 */
+    background-color : #5e6697;
+}
+.page-link{ /* 부트스트랩 css명 */
+    color : black;
+}
+/* 게시판 안에 있는 버튼들 */
+.boardBtn{
+    background-color : #5e6697;
+    color : white; border : none; width : 80px;
+    font-size : 15px; text-align : center;
+    border-radius : 8px;
+}
+/* 게시판 상단 부분 */
+.boardTopEtc{
+    display : flex;
+    justify-content : space-between;
+    margin : 20px 0px;
+}
+/* 검색창 */
+.boardSearchBox{
+    display: flex;
+    justify-content: center;
+    margin : 30px 0px;
+    border-bottom : 1px solid #e8e8e8;
+    padding-bottom : 20px;
+}
+/* 키워드 입력창 */
+.boardSearchBox > .keyword{
+    border : 1px solid #e8e8e8;
+    padding : 5px 10px;
+    border-radius : 10px;
+    width : 200px; font-size : 18px;
+    margin : 0px 10px;
+}
+.categoryActive{
+    background-color : black;
+}
+
+
+
+
+
+
+
+
+

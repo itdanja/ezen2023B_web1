@@ -83,11 +83,16 @@ public class BoardService {
     // 3. 개별 글 출력 호출
     public BoardDto doGetBoardView(int bno ) {
         System.out.println("BoardService.doGetBoardView");
+        // 조회수 처리 // 강제 조회수 증가 차단 : 조회수 처리 했다/안했다 증거 남겨서 하루에 한번 또는 회원마다 한번 또는 비회원 ip ( log , 세션 ) ,
+        boardDao.boardViewIncrease( bno );
+        // 게시물 출력 요청
         return boardDao.doGetBoardView( bno );
     }
 
     // 4. 글 수정 처리
 
     // 5. 글 삭제 처리
+
+
 
 }
