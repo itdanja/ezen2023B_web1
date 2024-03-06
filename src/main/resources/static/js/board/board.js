@@ -1,12 +1,20 @@
-
+// ======== 페이지 정보 관련 객체 = 여러개 변수 묶음 ======== //
+let pageObject = {
+    page : 1 ,              // 현재 페이지
+    pageBoardSize : 5 ,      // 현재 페이지당 표시할 게시물 수
+    bcno : 0                // 현재 카테고리
+}
 
 // 1. 전체 출력용 : 함수 - 매개변수 = page , 반환 x , 언제 실행할껀지 : 페이지 열릴때(JS)
 doViewList( 1 ); // 첫페이지 실행
 function doViewList( page ){   console.log( "doViewList()");
+
+    pageObject.page = page; // 매개변수로 들어온 페이지를 현재페이지에 대입
+
     $.ajax({
         url : "/board/do" ,
         method : "get" ,
-        data : { 'page' : page },
+        data : pageObject ,
         success : (r)=>{    console.log( r );
             // ==테이블에 레코드 구성======================================================
             // 1. 어디에
@@ -44,7 +52,40 @@ function doViewList( page ){   console.log( "doViewList()");
             // 3. 출력
             pagination.innerHTML = pagehtml;
 
+            // == 3. 부가 출력  ======================================================
+
+            document.querySelector('.totalPage').innerHTML = r.totalPage;
+            document.querySelector('.totalBoardSize').innerHTML = r.totalBoardSize;
+
         } // success end
     }); // ajax end
     return;
+} // end
+
+// 2. 페이지당 게시물 수
+function onPageBoardSize( object ){     console.log( object );console.log( object.value );
+    pageObject.pageBoardSize = object.value;
+    doViewList( 1 );
 }
+// 3. 카테고리 변경 함수
+function onBcno( bcno ){
+    // bcno : 카테고리 식별번호 [ 0 : 전체 , 1~ : 식별번호pk
+    pageObject.bcno = bcno;
+    doViewList( 1 );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

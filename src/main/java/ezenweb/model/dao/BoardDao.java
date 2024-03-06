@@ -29,24 +29,29 @@ public class BoardDao extends Dao {
         return 0; // 실패시 0
     }
     // 2-2 전체 게시물 수 호출
-    public int getBoardSize(){
+    public int getBoardSize( int bcno ){
         try{
-            String sql = "select count(*) from board;";
+            String sql = "select count(*) from board ";
+            // ==================== 1.만약에 카테고리 조건이 있으면 where 추가.
+            if( bcno > 0 ){ sql += " where bcno = "+bcno ; }
+
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             if( rs.next() ){ return rs.getInt(1); }
         }catch (Exception e ){  System.out.println("e = " + e);}
         return 0;
     }
-
     // 2-1. 전체 글 출력 호출
-    public List<BoardDto> doGetBoardViewList( int startRow , int pageBoardSize  ){ System.out.println("BoardDao.doGetBoardViewList");
+    public List<BoardDto> doGetBoardViewList( int startRow , int pageBoardSize , int bcno   ){ System.out.println("BoardDao.doGetBoardViewList");
         BoardDto boardDto = null;   List<BoardDto> list = new ArrayList<>();
         try{  // String sql = "select * from board";
-
+            // SQL 앞부분
             String sql = "select * from board b inner join member m " +
-                    " on b.mno = m.no " +
-                    " order by b.bdate desc " +
+                    " on b.mno = m.no ";
+            // SQL 가운데부분 [ 조건에 따라 where 절 추가 ]
+            if( bcno > 0 ){ sql += " where bcno = "+bcno ; }
+            // SQL 뒷부분
+            sql += " order by b.bdate desc " +
                     " limit ? , ?";
 
             ps =conn.prepareStatement(sql);
