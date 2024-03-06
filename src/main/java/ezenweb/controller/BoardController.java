@@ -3,6 +3,7 @@ package ezenweb.controller;
 import ezenweb.model.dto.BoardDto;
 import ezenweb.model.dto.BoardPageDto;
 import ezenweb.service.BoardService;
+import ezenweb.service.FileService;
 import ezenweb.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,16 @@ public class BoardController {
     // 4. 글 수정 처리                   /board/update.do        put         dto
 
     // 5. 글 삭제 처리                   /board/delete.do      delete        게시물번호
+
+    // 6. 다운로드
+    // 5. 첨부파일다운로드요청
+    @Autowired
+    private FileService fileService;
+    @GetMapping("/file/download")
+    public void filedownload(  @RequestParam String uuidFile ){
+        fileService.fileDownload( uuidFile );
+    } // m end
+
 
     // ==================== 머스테치는 컨트롤에서 뷰 반환. ============================= //
 

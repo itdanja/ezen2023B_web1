@@ -38,6 +38,40 @@
     background-color : black;
 }
 
+.boardViewBox{
+    margin-top: 30px;
+    padding: 40px;
+}
+.boardViewBox > div:nth-child(1){
+    padding: 20px 0px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.boardViewBox > div > span{
+    font-size: 20px;
+}
+.boardViewBox .viewTitle{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+.boardViewBox > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+    border-bottom: 1px solid #e8e8e8;
+}
+.boardViewBox > div:nth-child(3){
+    min-height: 400px;
+    padding: 20px 0px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.boardViewBox > div:nth-child(4){
+    padding: 20px 0px;
+}
+
+
 
 
 

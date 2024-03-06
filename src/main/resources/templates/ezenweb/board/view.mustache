@@ -1,14 +1,25 @@
 {{>ezenweb/header}}
     <div class="container">
-        <h3> 게시물 상세페이지 </h3>
-        <a href="/board">목록보기</a>
-        카테고리 : <div class="bcno"></div>
-        제목 : <div class="btitle"> </div>
-        내용 : <div class="bcontent"> </div>
-        작성자 :  <div class="mno"> </div>
-        작성일 :  <div class="bdate"> </div>
-        조회수 :  <div class="bview"> </div>
-        첨부파일 :  <div class="bfile"> </div>
+
+        <div class="boardViewBox">
+            <div> <span class="viewTitle">제목</span> <span class="btitle"></span> </div>
+            <div>
+                <div> <span class="viewTitle">카테고리</span> <span class="bcname">  </span> </div>
+                <div> <span class="viewTitle">작성자</span> <span class="mid">  </span> </div>
+                <div> <span class="viewTitle">작성일</span> <span class="bdate">  </span> </div>
+                <div> <span class="viewTitle">조회수</span> <span class="bview">  </span> </div>
+            </div>
+            <div class="bcontent">
+                
+            </div>
+            <div>
+                <div> <span class="viewTitle"> 첨부파일 </span> <span class="bfile"> <span> </div>
+            </div>
+            
+            <button class="boardBtn" onclick="location.href='/board'">
+                목록보기
+            </button>
+        </div>
     </div>
     <script src="/js/board/view.js"></script>
 {{>ezenweb/footer}}

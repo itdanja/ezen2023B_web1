@@ -1,9 +1,15 @@
 package ezenweb.service;
 
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
 import java.util.UUID;
 
 @Service // 해당 클래스를 스프링 컨터이너(저장소)에 빈(객체) 등록
@@ -12,7 +18,7 @@ public class FileService {
     // Service : Controller <--  Service(비지니로직) --> Dao ,  Controller <--> Service(비지니로직)
 
     // 어디에(PATH) 누구를(파일객체 MultipartFile )
-    String uploadPath = "C:\\Users\\504-t\\Desktop\\ezen2023B_web1\\build\\resources\\main\\static\\img\\";
+    String uploadPath = "C:\\Users\\MSI\\ezen2023B_web1\\build\\resources\\main\\static\\img\\";
 
     // 1. 업로드 서비스 메소드
     public String fileUpload( MultipartFile multipartFile){
@@ -32,6 +38,31 @@ public class FileService {
         return filename; // 반환 : 어떤 이름으로 업로드 했는지 식별명 반환해서
     }
     // 2. 다운로드 메소드
+    // 2. 다운로드
+    @Autowired
+    private HttpServletResponse response;
+    public void fileDownload( String uuidFile ){
+        // 1. 다운로드할 파일의 경로 찾기
+        String downloadFilePath = uploadPath + uuidFile;
+        // 2. uuid 제거된 순수 파일명 [ 다운로드 시 출력되는 파일명 이니까 uuid 제거 ]
+        String fileName = uuidFile.split("_")[1]; // _ 기준으로 쪼갠후 뒷자리 파일명만 호출
+        try {
+            // 3. 다운로드 형식 구성 [ 브라우저가 지원하는 다운로드 형식 - 별도로 커스텀 불가능 ]
+            response.setHeader("Content-Disposition",
+                    "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));
+            // 4. 다운로드
+            // --------------------------------- 서버가 해당 파일 읽어오기 -------------------------------- //
+            File file = new File( downloadFilePath ); // 1. 서버가 해당 파일 읽어오기
+            BufferedInputStream fin = new BufferedInputStream( new FileInputStream(file) ); // 2. 버퍼스트림 이용한 바이트로 파일 읽어오기
+            byte[] bytes = new byte[ (int)file.length() ]; // 3. 파일의 용량[바이트] 만큼 바이트배열 선언
+            fin.read( bytes );  // 4. 버퍼스트림이 읽어온 바이트들을 바이트배열에 저장
+            // ---------------------------------- 서버가 읽어온파일을 클라이언트에게 응답하기 -------------------------- //
+            BufferedOutputStream fout = new BufferedOutputStream( response.getOutputStream() );   // 1. 버퍼스트림 이용한 response 으로 응답하기
+            fout.write( bytes );  // 2. 읽어온 바이트[파일] 내보내기
+            fout.flush(); fout.close(); fin.close(); // 3. 안전하게 스트림 닫기
+        }catch (Exception e ){   System.out.println("e = " + e);   }
+    }
+
 }
 /*
 

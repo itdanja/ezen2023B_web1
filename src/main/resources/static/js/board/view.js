@@ -17,15 +17,20 @@ function onView(){
         method : "get" ,
         data : { "bno" : bno },   // 쿼리스트링.
         success : (r)=>{
+
             console.log(r);
             document.querySelector('.btitle').innerHTML = r.btitle
             document.querySelector('.bcontent').innerHTML = r.bcontent;
 
-            document.querySelector('.bcno').innerHTML = r.bcno;
-            document.querySelector('.mno').innerHTML = r.mno;
+            document.querySelector('.bcname').innerHTML = r.bcno;
             document.querySelector('.bdate').innerHTML = r.bdate;
             document.querySelector('.bview').innerHTML = r.bview;
-            document.querySelector('.bfile').innerHTML = r.bfile;
+            
+
+            document.querySelector('.bfile').innerHTML = `<a href="/board/file/download?uuidFile=${ r.bfile}"> ${r.bfile } </a>`;
+     
+            document.querySelector('.mid').innerHTML = r.mid;
+
         }
     }) // ajax end
 } // f end
