@@ -29,7 +29,7 @@ public class BoardService {
         return boardDao.doPostBoardWrite( boardDto );
     }
     // 2. 전체 글 출력 호출
-    public BoardPageDto doGetBoardViewList( int page , int pageBoardSize , int bcno  ){   System.out.println("BoardService.doGetBoardViewList");
+    public BoardPageDto doGetBoardViewList( int page , int pageBoardSize , int bcno , String field , String value  ){   System.out.println("BoardService.doGetBoardViewList");
 
         // 페이지처리시 사용할 SQL 구문 : limit 시작레코드번호(0부터) , 출력개수
         // 1. 페이지당 게시물을 출력할 개수          [ 출력개수 ]
@@ -45,13 +45,13 @@ public class BoardService {
          */
         // 3. 총 페이지수 ( 페이지네이션 사용할 페이지버튼 )
             // 1. 전체 게시물수/ 레코드수
-        int totalBoardSize = boardDao.getBoardSize( bcno );
+        int totalBoardSize = boardDao.getBoardSize( bcno , field , value  );
             // 2. 총 페이지수 계산 ( 나머지값이 존재하면 +1 )
         int totalPage = totalBoardSize % pageBoardSize == 0 ?
                         totalBoardSize / pageBoardSize :
                         totalBoardSize / pageBoardSize + 1 ;
         // 4. 게시물 정보 요청
-        List<BoardDto> list = boardDao.doGetBoardViewList( startRow , pageBoardSize , bcno  );
+        List<BoardDto> list = boardDao.doGetBoardViewList( startRow , pageBoardSize , bcno , field , value  );
 
         // 5. 페이징 버튼 개수
             // 1. 페이지버튼 최대 개수

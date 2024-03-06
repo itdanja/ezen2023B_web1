@@ -1,8 +1,10 @@
 // ======== 페이지 정보 관련 객체 = 여러개 변수 묶음 ======== //
-let pageObject = {
+let pageObject = {          // 기본값
     page : 1 ,              // 현재 페이지
     pageBoardSize : 5 ,      // 현재 페이지당 표시할 게시물 수
-    bcno : 0                // 현재 카테고리
+    bcno : 0 ,               // 현재 카테고리
+    key : 'b.btitle',       // 현재 검색 key
+    keyword : ''           // 현재 검색 keyword
 }
 
 // 1. 전체 출력용 : 함수 - 매개변수 = page , 반환 x , 언제 실행할껀지 : 페이지 열릴때(JS)
@@ -71,7 +73,21 @@ function onPageBoardSize( object ){     console.log( object );console.log( objec
 function onBcno( bcno ){
     // bcno : 카테고리 식별번호 [ 0 : 전체 , 1~ : 식별번호pk
     pageObject.bcno = bcno;
+    // 검색 제거 ( 검색이 없다는 기준 데이터 )
+    pageObject.key = 'b.title';
+    pageObject.keyword = '';
+    document.querySelector('.key').value = 'b.btitle'
+    document.querySelector('.keyword').value = '';
+    //
     doViewList( 1 );
+}
+// 4. 검색 함수
+function onSearch(){
+    let key =  document.querySelector('.key').value; // 1. 입력받은 값 가져오기
+    let keyword = document.querySelector('.keyword').value;
+    pageObject.key = key;  // 2. 서버에 전송할 객체에 담아주고
+    pageObject.keyword = keyword;
+    doViewList( 1 ); // 3. 출력 함수 호출
 }
 
 

@@ -43,9 +43,10 @@ public class BoardController {
     @ResponseBody       // @RequestParam : 쿼리스트링
     public BoardPageDto doGetBoardViewList(
             @RequestParam int page , @RequestParam int pageBoardSize ,
-            @RequestParam int bcno ){
+            @RequestParam int bcno ,
+            @RequestParam("key") String field , @RequestParam("keyword") String value ){
         System.out.println("BoardController.doGetBoardViewList");
-        return  boardService.doGetBoardViewList( page , pageBoardSize , bcno  );
+        return  boardService.doGetBoardViewList( page , pageBoardSize , bcno , field , value  );
     }
 
     // 3. 개별 글 출력 호출               /board/view.do         get           게시물번호      dto

@@ -29,11 +29,22 @@ public class BoardDao extends Dao {
         return 0; // 실패시 0
     }
     // 2-2 전체 게시물 수 호출
-    public int getBoardSize( int bcno ){
+    public int getBoardSize( int bcno , String field , String value ){
+
+        System.out.println("bcno = " + bcno + ", field = " + field + ", value = " + value);
+
         try{
-            String sql = "select count(*) from board ";
+            String sql = "select count(*) from board b inner join member m " +
+                    " on b.mno = m.no ";
+
             // ==================== 1.만약에 카테고리 조건이 있으면 where 추가.
-            if( bcno > 0 ){ sql += " where bcno = "+bcno ; }
+            if( bcno > 0 ){ sql += " where b.bcno = "+bcno ; }
+            // ==================== 2.만약에 검색 있을때.
+            if(  !value.isEmpty() ){    System.out.println("★검색 키워드가 존재.");
+                if( bcno > 0 ){ sql += " and "; }   // 카테고리가 있을때. and로 연결
+                else{ sql += " where "; }           // 카테고리 없을때 where 로 연결
+                sql += field+" like '%"+value+"%' ";
+            }
 
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -42,14 +53,27 @@ public class BoardDao extends Dao {
         return 0;
     }
     // 2-1. 전체 글 출력 호출
-    public List<BoardDto> doGetBoardViewList( int startRow , int pageBoardSize , int bcno   ){ System.out.println("BoardDao.doGetBoardViewList");
+    public List<BoardDto> doGetBoardViewList( int startRow , int pageBoardSize , int bcno  , String field , String value  ){ System.out.println("BoardDao.doGetBoardViewList");
+
+        System.out.println("startRow = " + startRow + ", pageBoardSize = " + pageBoardSize + ", bcno = " + bcno + ", field = " + field + ", value = " + value);
+
         BoardDto boardDto = null;   List<BoardDto> list = new ArrayList<>();
         try{  // String sql = "select * from board";
             // SQL 앞부분
             String sql = "select * from board b inner join member m " +
                     " on b.mno = m.no ";
-            // SQL 가운데부분 [ 조건에 따라 where 절 추가 ]
+
+            // --- SQL 가운데부분 [ 조건에 따라 where 절 추가 ]
+            // ==================== 1.만약에 카테고리 조건이 있으면 where 추가.
             if( bcno > 0 ){ sql += " where bcno = "+bcno ; }
+
+            // ==================== 2.만약에 검색 있을때.
+            if(  !value.isEmpty() ){    System.out.println("★검색 키워드가 존재.");
+                if( bcno > 0 ){ sql += " and "; }   // 카테고리가 있을때. and로 연결
+                else{ sql += " where "; }           // 카테고리 없을때 where 로 연결
+                sql += field+" like '%"+value+"%' ";
+            }
+
             // SQL 뒷부분
             sql += " order by b.bdate desc " +
                     " limit ? , ?";
