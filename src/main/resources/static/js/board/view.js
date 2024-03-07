@@ -25,7 +25,28 @@ function onView(){
             document.querySelector('.mno').innerHTML = r.mno;
             document.querySelector('.bdate').innerHTML = r.bdate;
             document.querySelector('.bview').innerHTML = r.bview;
-            document.querySelector('.bfile').innerHTML = r.bfile;
+            //* 다운로드 링크
+            document.querySelector('.bfile').innerHTML = `<a href="/board/file/download?bfile=${ r.bfile }"> ${ r.bfile } </a>`;
         }
     }) // ajax end
 } // f end
+
+// 2. 게시물 삭제 함수
+function onDelete( ){
+    $.ajax({
+        url : "/board/delete.do" , method : "delete" , data : { 'bno' : bno } , success : (r)=>{
+            if( r ){ alert('삭제성공'); location.href="/board"; }
+            else{ alert('삭제실패'); }
+        }
+    });
+}
+
+
+
+
+
+
+
+
+
+

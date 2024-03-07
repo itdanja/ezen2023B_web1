@@ -3,12 +3,16 @@ package ezenweb.controller;
 import ezenweb.model.dto.BoardDto;
 import ezenweb.model.dto.BoardPageDto;
 import ezenweb.service.BoardService;
+import ezenweb.service.FileService;
 import ezenweb.service.MemberService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedOutputStream;
+import java.net.URLEncoder;
 import java.util.List;
 
 @Controller
@@ -58,8 +62,28 @@ public class BoardController {
     }
 
     // 4. 글 수정 처리                   /board/update.do        put         dto
+    @PutMapping("/update.do")
+    @ResponseBody
+    public boolean doUpdateBoard( BoardDto boardDto  ){     System.out.println("BoardController.doUpdateBoard");  System.out.println("boardDto = " + boardDto);
+        return boardService.doUpdateBoard( boardDto );
+    }
 
-    // 5. 글 삭제 처리                   /board/delete.do      delete        게시물번호
+    // 5. 글 삭제 처리                    /board/delete.do      delete        게시물번호
+    @DeleteMapping("/delete.do")
+    @ResponseBody
+    public boolean doDeleteBoard( @RequestParam int bno ){ System.out.println("BoardController.doDeleteBoard");
+        return boardService.doDeleteBoard(bno);
+    }
+
+    @Autowired
+    private FileService fileService;
+
+    // 6. 다운로드 처리 ( 함수만들때 고민할점. 1.매개변수 : 파일명  2.반환 3.사용처 : get http요청 )
+    @GetMapping("/file/download")
+    @ResponseBody
+    public void getBoardFileDownload( @RequestParam String bfile ){
+        fileService.fileDownload( bfile );
+    }
 
     // ==================== 머스테치는 컨트롤에서 뷰 반환. ============================= //
 
@@ -90,7 +114,20 @@ public class BoardController {
 
 
 
-
+/*
+*         // *5가지
+            // 1.
+        FileService fileService = new FileService();
+        fileService.fileDownload();
+            // 2.
+        new FileService().fileDownload();
+            // 3.
+        FileService.getInstance().fileDownload();
+            // 4. static
+        FileService.fileDownload();
+            // 5.
+        fileService.fileDownload();
+* */
 
 
 

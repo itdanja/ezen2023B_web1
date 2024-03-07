@@ -121,9 +121,24 @@ public class BoardDao extends Dao {
     }
 
     // 4. 글 수정 처리
+    public boolean doUpdateBoard( BoardDto boardDto  ){ System.out.println("BoardDao.doUpdateBoard");
+        try{
+            String sql = "update board set btitle = ? , bcontent = ? , bcno = ? where bno = ? ";
+            ps = conn.prepareStatement(sql);
+            ps.setString( 1 , boardDto.getBtitle() );   ps.setString( 2 , boardDto.getBcontent() );
+            ps.setLong( 3 , boardDto.getBcno() );       ps.setLong( 4 , boardDto.getBno() );
+            int count = ps.executeUpdate(); if( count == 1 ){ return true; }
+        }catch (Exception e ){ System.out.println("e = " + e); } return false;
+    }
 
     // 5. 글 삭제 처리
-
+    public boolean doDeleteBoard(  int bno ){        System.out.println("BoardDao.doDeleteBoard");
+        try{
+            String sql = "delete from board where bno = "+bno;
+            ps = conn.prepareStatement(sql);
+            int count = ps.executeUpdate(); if( count == 1 ) return true;
+        }catch (Exception e ){ System.out.println("e = " + e);} return false;
+    }
 
 
 }
