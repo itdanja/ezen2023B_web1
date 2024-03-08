@@ -38,6 +38,62 @@
     background-color : black;
 }
 
+/* VIEW PAGE CSS */
+.boardViewBox{
+    margin-top : 20px;
+    padding : 50px;
+}
+.boardViewBox .viewTitle{
+    margin-right : 10px;
+    font-weight : bold;
+}
+.boardViewBox > div{
+    padding : 20px 0px;
+    border-bottom : 1px solid #e8e8e8;
+}
+.boardViewBox > div:nth-child(1){ /*제목*/
+}
+.boardViewBox > div:nth-child(1) > span{
+    font-size : 25px;
+}
+.boardViewBox > div:nth-child(2){  /*기타정보*/
+    display : flex;
+    justify-content : space-between;
+}
+.boardViewBox > div:nth-child(3){  /*내용*/
+    min-height : 500px; /*높이 */
+     /* min-height 최소높이 : 내용물 더 커지면 더 커진다. */
+     /* max-height 최대높이 : 내용물 더 커지면 고정 */
+}
+.boardViewBox > div:nth-child(4){ /*첨부파일*/
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
