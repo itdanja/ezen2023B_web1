@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.BufferedOutputStream;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/board") // 공통 URL
@@ -25,6 +26,8 @@ public class BoardController {
     private HttpServletRequest request;
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private FileService fileService;
 
     // 1. 글쓰기 처리                    /board/write.do       post          Dto         true/false
     @PostMapping("/write.do")
@@ -90,8 +93,6 @@ public class BoardController {
         }
         return false;
     }
-    @Autowired
-    private FileService fileService;
 
     // 6. 다운로드 처리 ( 함수만들때 고민할점. 1.매개변수 : 파일명  2.반환 3.사용처 : get http요청 )
     @GetMapping("/file/download")
@@ -99,6 +100,31 @@ public class BoardController {
     public void getBoardFileDownload( @RequestParam String bfile ){
         fileService.fileDownload( bfile );
     }
+
+    // 7. 댓글 작성 ( brcontent , brindex , mno , bno )
+    @PostMapping("/reply/write.do")
+    @ResponseBody
+    public boolean postReplyWrite( @RequestParam Map< String , String > map ){    System.out.println("BoardController.postReplyWrite");
+        // 1. 현재 로그인된 세션( 톰캣서버(자바프로그램) 메모리(JVM) 저장소 ) 호출
+        Object object = request.getSession().getAttribute("loginDto");
+        if( object == null ) return false; // 세션없다(로그인 안했다.)
+        // 2. 형변환
+        String mid = (String) object;
+        // 3. mid를 mno 찾아오기
+        long mno = memberService.doGetLoginInfo( mid ).getNo();
+        // 4. map에 mno 넣기
+        map.put( "mno" , mno+"" );
+        System.out.println("map = " + map);
+
+        return boardService.postReplyWrite( map );
+    }
+    // 8. 댓글 출력   댓글( brno , brcontent , brdate , brindex , mno  ) , 매개변수 : bno
+    @GetMapping("/reply/do")
+    @ResponseBody
+    public List< Map< String , String > > getReplyDo( int bno ){    System.out.println("BoardController.getReplyDo");
+        return boardService.getReplyDo( bno );
+    }
+
 
     // ==================== 머스테치는 컨트롤에서 뷰 반환. ============================= //
 

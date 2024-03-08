@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BoardService {
@@ -124,6 +125,16 @@ public class BoardService {
     public boolean boardWriterAuth( long bno , String mid ){
         return  boardDao.boardWriterAuth( bno, mid );
     }
+
+    // 7. 댓글 등록
+    public boolean postReplyWrite( Map< String , String > map ){    System.out.println("BoardController.postReplyWrite");
+        return boardDao.postReplyWrite(map);
+    }
+    // 8. 댓글 출력
+    public List< Map< String , String > > getReplyDo( int bno ){    System.out.println("BoardController.getReplyDo");
+        return boardDao.getReplyDo( bno );
+    }
+
 }
 
 

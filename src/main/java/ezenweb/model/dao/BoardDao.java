@@ -5,7 +5,9 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class BoardDao extends Dao {
@@ -156,8 +158,60 @@ public class BoardDao extends Dao {
         }catch (Exception e ){  System.out.println("e = " + e); }
         return  false;
     }
+    // 7. 댓글 등록
+    public boolean postReplyWrite( Map< String , String > map ){    System.out.println("BoardController.postReplyWrite");
+        try{
+            String sql = "insert into breply( brcontent , brindex,mno,bno)" +
+                    " values(? ,?,?,?)";
+            ps = conn.prepareStatement(sql);
+            ps.setString( 1 , map.get("brcontent") );
+            ps.setString( 2 , map.get("brindex") );
+            ps.setString( 3 , map.get("mno") );
+            ps.setString( 4 , map.get("bno") );
+            int count = ps.executeUpdate();
+            if( count == 1 ) { return  true; }
+        }catch (Exception e ){  System.out.println("e = " + e);  }
+        return false;
+    }
+    // 8. 댓글 출력
+    public List< Map< String , String > > getReplyDo( int bno ){    System.out.println("BoardController.getReplyDo");
+        List< Map<String,String> > list = new ArrayList<>();
+        try{
+            // 상위 댓글 먼저 출력
+            String sql ="select * from breply where brindex = 0 and bno="+bno;
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while ( rs.next() ){
+                Map<String,String> map = new HashMap<>(); // map vs dto
+                map.put( "brno" , rs.getString("brno") );
+                map.put( "brcontent" , rs.getString("brcontent") );
+                map.put( "brdate" , rs.getString("brdate") );
+                map.put( "mno" , rs.getString("mno") );
+                list.add( map );
+            }
+        }catch (Exception e ){  System.out.println("e = " + e);    }
+        return list;
+    }
+
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
