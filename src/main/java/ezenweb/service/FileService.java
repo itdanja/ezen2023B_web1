@@ -11,6 +11,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -77,6 +78,8 @@ public class FileService {
                         // 바이트 하나씩 읽어오면서 바이트배열 저장 => 바이트 배열 필요하다.
                         fin.read( bytes );  // - 입력스트림객체.read( 바이트배열 ) 하나씩 바이트를 읽어와서 해당 바이트 배열에 저장 해주는 함수.
 
+                        System.out.println("Arrays.toString( bytes )  = " + Arrays.toString( bytes ) );
+
                     // 1-3 (확인용) 읽어온 파일의 바이트가 들어있다.
                     System.out.println("bytes = " + bytes);
 
@@ -85,6 +88,10 @@ public class FileService {
                 BufferedOutputStream fout = new BufferedOutputStream(response.getOutputStream());
                     // 2-2 응답스트림.write( 내보내기할바이트배열 ) :  내보내기 할 바이트배열 준비 상태이면 내보내기
                 fout.write( bytes );
+
+                // -------- 버퍼 초기화 ( 안전하게 )
+                fin.close();    // 입력 스트림 닫기
+                fout.close();   // 입력 스트림 닫기
 
             }catch (Exception e ){ System.out.println("e = " + e);  }
         }else{  System.out.println("첨부파일 없다.");

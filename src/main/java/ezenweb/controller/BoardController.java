@@ -65,16 +65,31 @@ public class BoardController {
     @PutMapping("/update.do")
     @ResponseBody
     public boolean doUpdateBoard( BoardDto boardDto  ){     System.out.println("BoardController.doUpdateBoard");  System.out.println("boardDto = " + boardDto);
-        return boardService.doUpdateBoard( boardDto );
+        // 유효성검사.// 1. 현재 로그인된 아이디. ( 세션 )
+        Object object = request.getSession().getAttribute("loginDto");
+        if( object != null ){
+            String mid = (String)object;
+            boolean result
+                    =  boardService.boardWriterAuth( boardDto.getBno() , mid ); // 해당 세션정보가 작성한 글인지 체크.
+            if( result ){   return boardService.doUpdateBoard( boardDto );  } // 2. 현재 수정할 게시물의 작성자 아이디 ( DB )
+        }
+        return false;
     }
-
     // 5. 글 삭제 처리                    /board/delete.do      delete        게시물번호
     @DeleteMapping("/delete.do")
     @ResponseBody
-    public boolean doDeleteBoard( @RequestParam int bno ){ System.out.println("BoardController.doDeleteBoard");
-        return boardService.doDeleteBoard(bno);
+    public boolean doDeleteBoard( @RequestParam int bno ) { System.out.println("BoardController.doDeleteBoard");
+        // 유효성검사.
+        // 1. 현재 로그인된 아이디. ( 세션 )
+        Object object = request.getSession().getAttribute("loginDto");
+        if (object != null) {
+            String mid = (String) object;
+            boolean result
+                    =  boardService.boardWriterAuth( bno , mid ); // 해당 세션정보가 작성한 글인지 체크.
+            if( result ){   return boardService.doDeleteBoard( bno ); } // 2. 현재 수정할 게시물의 작성자 아이디 ( DB )
+        }
+        return false;
     }
-
     @Autowired
     private FileService fileService;
 
@@ -104,7 +119,12 @@ public class BoardController {
     public String getBoardView( int bno ){
         return "ezenweb/board/view";
     }
+
     // 4. 글수정 페이지 이동            /board/update       GET
+    @GetMapping("/update")
+    public String getBoardUpdate( ){
+        return "ezenweb/board/update";
+    }
 
 } // class end
 

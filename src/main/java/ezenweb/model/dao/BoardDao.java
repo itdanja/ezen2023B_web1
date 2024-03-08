@@ -122,11 +122,14 @@ public class BoardDao extends Dao {
 
     // 4. 글 수정 처리
     public boolean doUpdateBoard( BoardDto boardDto  ){ System.out.println("BoardDao.doUpdateBoard");
+        System.out.println("boardDto = " + boardDto);
         try{
-            String sql = "update board set btitle = ? , bcontent = ? , bcno = ? where bno = ? ";
+            String sql = "update board set btitle = ? , bcontent = ? , bcno = ? , bfile = ? where bno = ? ";
             ps = conn.prepareStatement(sql);
             ps.setString( 1 , boardDto.getBtitle() );   ps.setString( 2 , boardDto.getBcontent() );
-            ps.setLong( 3 , boardDto.getBcno() );       ps.setLong( 4 , boardDto.getBno() );
+            ps.setLong( 3 , boardDto.getBcno() );       ps.setString( 4 , boardDto.getBfile() );
+            ps.setLong( 5 , boardDto.getBno() );
+
             int count = ps.executeUpdate(); if( count == 1 ){ return true; }
         }catch (Exception e ){ System.out.println("e = " + e); } return false;
     }
@@ -138,6 +141,20 @@ public class BoardDao extends Dao {
             ps = conn.prepareStatement(sql);
             int count = ps.executeUpdate(); if( count == 1 ) return true;
         }catch (Exception e ){ System.out.println("e = " + e);} return false;
+    }
+    // 6. 게시물 작성자 인증
+    public boolean boardWriterAuth( long bno , String mid ){
+        try{
+            String sql = "select * from board b inner join member m " +
+                    " on b.mno = m.no " +
+                    " where b.bno = ? and m.id = ? ";
+            ps = conn.prepareStatement(sql);
+            ps.setLong( 1 , bno );
+            ps.setString( 2 , mid );
+            rs = ps.executeQuery();
+            if( rs.next() ){ return true; }
+        }catch (Exception e ){  System.out.println("e = " + e); }
+        return  false;
     }
 
 

@@ -90,12 +90,22 @@ public class BoardService {
         return boardDao.doGetBoardView( bno );
     }
 
-    // 4. 글 수정 처리
+    // 4. 글 수정 처리 ( 매개변수 : bno , btitle , bcontent , uploadfile , bcno )
     public boolean doUpdateBoard( BoardDto boardDto  ){ System.out.println("BoardService.doUpdateBoard");
+        // ** 1.기존 첨부파일명 구하고
+        String bfile = boardDao.doGetBoardView( (int)boardDto.getBno()).getBfile();
+        // - 새로운 첨부파일이 있다. 없다.
+        if( !boardDto.getUploadfile().isEmpty() ){ // 수정시 새로운 첨부파일이 있으면
+            // 새로운 첨부파일을 업로드 하고 기존 첨부파일 삭제
+            String fileName =  fileService.fileUpload( boardDto.getUploadfile() );
+            if( fileName != null ){ // 업로드 성공
+                boardDto.setBfile( fileName ); // 새로운 첨부파일의 이름 dto 대입
+                // 기존 첨부파일 삭제. // 2. 기존 첨부파일 삭제
+                fileService.fileDelete( bfile );
+            }else{  return false;} // 업로드 실패
+        }else{  boardDto.setBfile( bfile );  }  // 새로운 첨부파일이 없으면 기존 첨부파일명을 그대로 대입.
         return boardDao.doUpdateBoard( boardDto );
     }
-
-
     // 5. 글 삭제 처리
     public boolean doDeleteBoard(  int bno ){   System.out.println("BoardService.doDeleteBoard");
         // - 레코드 삭제 하기전에 삭제할 첨부파일명을 임시로 꺼내둔다.
@@ -110,7 +120,28 @@ public class BoardService {
         }
         return result;
     }
+    // 6. 게시물 작성자 인증
+    public boolean boardWriterAuth( long bno , String mid ){
+        return  boardDao.boardWriterAuth( bno, mid );
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

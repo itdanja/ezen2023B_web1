@@ -27,7 +27,21 @@ function onView(){
             document.querySelector('.bview').innerHTML = r.bview;
             //* 다운로드 링크
             document.querySelector('.bfile').innerHTML = `<a href="/board/file/download?bfile=${ r.bfile }"> ${ r.bfile } </a>`;
-        }
+            //* 삭제 / 수정 버튼 활성화 ( 해당 보고 있는 클라이언트가 게시물 작성자의 아이디와 동일하면 )
+                // 유효성검사.
+                // 현재 로그인된 아이디 또는 번호 ( 1.헤더 HTML 가져온다 . 2.서버에게 요청 )
+            $.ajax({
+                url : "/member/login/check",
+                method : 'get',
+                success : (loginId)=>{
+                    if( loginId == r.mid ){
+                        let btnHTML = `<button type="button" onclick="onDelete( )"> 삭제 </button>`
+                        btnHTML +=  `<button type="button" onclick="location.href='/board/update?bno=${ r.bno }'"> 수정 </button>`
+                        document.querySelector('.btnBox').innerHTML = btnHTML
+                    }
+                } // success end
+            }) // ajax2 end
+        } // success end
     }) // ajax end
 } // f end
 
