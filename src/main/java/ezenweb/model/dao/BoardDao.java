@@ -3,6 +3,7 @@ package ezenweb.model.dao;
 import ezenweb.model.dto.BoardDto;
 import org.springframework.stereotype.Component;
 
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -174,19 +175,42 @@ public class BoardDao extends Dao {
         return false;
     }
     // 8. 댓글 출력
-    public List< Map< String , String > > getReplyDo( int bno ){    System.out.println("BoardController.getReplyDo");
-        List< Map<String,String> > list = new ArrayList<>();
+    public List< Map< String , Object > > getReplyDo( int bno ){    System.out.println("BoardController.getReplyDo");
+        List< Map<String,Object> > list = new ArrayList<>();
+
+
+
         try{
             // 상위 댓글 먼저 출력
             String sql ="select * from breply where brindex = 0 and bno="+bno;
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             while ( rs.next() ){
-                Map<String,String> map = new HashMap<>(); // map vs dto
+                Map<String,Object> map = new HashMap<>(); // map vs dto
                 map.put( "brno" , rs.getString("brno") );
+
+                sql = "select * from breply where brindex = ? and bno="+bno;
+                ps = conn.prepareStatement(sql);
+                ps.setInt( 1 , rs.getInt("brno") );
+                ResultSet rs2 = ps.executeQuery();
+
+                List< Map< String , Object >  > list2 = new ArrayList<>();
+
+                while ( rs2.next() ){
+                    Map<String,Object> map2 = new HashMap<>(); // map vs dto
+                    map2.put( "brno" , rs2.getString("brno") );
+                    map2.put( "brcontent" , rs2.getString("brcontent") );
+                    map2.put( "brdate" , rs2.getString("brdate") );
+                    map2.put( "mno" , rs2.getString("mno") );
+                    list2.add( map2 );
+                }
+
                 map.put( "brcontent" , rs.getString("brcontent") );
                 map.put( "brdate" , rs.getString("brdate") );
                 map.put( "mno" , rs.getString("mno") );
+
+                map.put( "subReply" ,list2 );
+
                 list.add( map );
             }
         }catch (Exception e ){  System.out.println("e = " + e);    }

@@ -26,6 +26,8 @@ function onView(){
             document.querySelector('.bdate').innerHTML = r.bdate;
             document.querySelector('.bview').innerHTML = r.bview;
 
+
+
             //* 다운로드 링크
                 // 유효성검사
             if( r.bfile != null){
@@ -37,14 +39,20 @@ function onView(){
             $.ajax({
                 url : "/member/login/check",
                 method : 'get',
+                async : false,
                 success : (loginId)=>{
                     if( loginId == r.mid ){
                         let btnHTML = `<button class="boardBtn" type="button" onclick="onDelete( )"> 삭제 </button>`
                         btnHTML +=  `<button class="boardBtn" type="button" onclick="location.href='/board/update?bno=${ r.bno }'"> 수정 </button>`
                         document.querySelector('.btnBox').innerHTML += btnHTML
+
+
                     }
                 } // success end
             }) // ajax2 end
+
+            getReplyList();
+
         } // success end
     }) // ajax end
 } // f end
@@ -59,6 +67,75 @@ function onDelete( ){
     });
 }
 
+
+// 6. 댓글 쓰기
+function rwrite( brindex ){
+	$.ajax({
+		url : "/board/reply/write.do" ,
+		method : "post" ,
+		data : {
+			"brindex" : brindex ,
+			"bno" : bno ,
+			"brcontent" : document.querySelector(`.rcontent${brindex}`).value
+			} ,
+		success : (r)=>{
+			console.log(r);
+			if( r == true ){
+				alert('댓글작성성공');
+				document.querySelector(`.rcontent${brindex}`).value = ''
+				if( brindex >= 1 ){
+				    document.querySelector(`.subReplyBox${ brindex }`).innerHTML = '';
+				}
+				getReplyList();
+			 }
+			else{ alert('댓글작성실패');}
+		}
+	});
+}
+// 7. 댓글 출력
+function getReplyList(){
+	$.ajax({
+		url : "/board/reply/do" ,
+		method : "get" ,
+		data : { "type" : 1 ,"bno" : bno },
+		success : (r) => {
+			console.log(r);
+
+			let html = ''
+			r.forEach( (o) => {
+				html +=`
+					<div>
+						<span>${ o.mno} </span>
+						<span>${ o.brdate} </span>
+						<span>${ o.brcontent} </span>
+						<span> <button type="button" onclick="subReplyView(${ o.brno })"> 답글 </button> </span>
+						<div class="subReplyBox${ o.brno }"></div>
+						<div>`
+						    o.subReply.forEach( ( o2 )=>{
+						        html +=` <div class="subReply">
+                                                <span>${ o2.mno} </span>
+                                                <span>${ o2.brdate} </span>
+                                                <span>${ o2.brcontent} </span>
+                                        </div>`
+						    })
+                html +=`
+						</div>
+					</div>
+					`
+			})
+			document.querySelector('.replylistbox').innerHTML = html;
+		}
+	})
+}//end
+
+function subReplyView( brno ){
+
+    document.querySelector(`.subReplyBox${ brno }`).innerHTML = `
+        <textarea class="rcontent${brno}" rows="" cols=""></textarea>
+        <button class="rwritebtn boardBtn" onclick="rwrite( ${ brno })" type="button">댓글작성</button>
+    `
+
+}
 
 
 

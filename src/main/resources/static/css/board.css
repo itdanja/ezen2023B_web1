@@ -68,6 +68,9 @@
 .boardViewBox > div:nth-child(4){ /*첨부파일*/
 
 }
+.subReply{
+    margin-left: 50px;
+}
 
 
 
