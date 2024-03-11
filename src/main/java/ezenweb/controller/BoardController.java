@@ -101,7 +101,7 @@ public class BoardController {
         fileService.fileDownload( bfile );
     }
 
-    // 7. 댓글 작성 ( brcontent , brindex , mno , bno )
+    // 7. 댓글 작성 ( bno , brcontent , *brindex:댓글위치[0:상위, 1~:하위] ,mno  )
     @PostMapping("/reply/write.do")
     @ResponseBody
     public boolean postReplyWrite( @RequestParam Map< String , String > map ){    System.out.println("BoardController.postReplyWrite");
@@ -113,15 +113,13 @@ public class BoardController {
         // 3. mid를 mno 찾아오기
         long mno = memberService.doGetLoginInfo( mid ).getNo();
         // 4. map에 mno 넣기
-        map.put( "mno" , mno+"" );
-        System.out.println("map = " + map);
-
+        map.put( "mno" , mno+"" ); System.out.println("map = " + map);
         return boardService.postReplyWrite( map );
     }
-    // 8. 댓글 출력   댓글( brno , brcontent , brdate , brindex , mno  ) , 매개변수 : bno
+    // 8. 댓글 출력   댓글( brno , brcontent , brdate , brindex , mno  ) , 매개변수 : bno , 리턴변수
     @GetMapping("/reply/do")
     @ResponseBody
-    public List< Map< String , String > > getReplyDo( int bno ){    System.out.println("BoardController.getReplyDo");
+    public List< Map< String , Object > > getReplyDo( int bno ){    System.out.println("BoardController.getReplyDo");
         return boardService.getReplyDo( bno );
     }
 
