@@ -80,4 +80,31 @@ create table breply(
 select *from breply;
 
 
+# 2. 제품
+drop table if exists product;
+create table product(
+	pno			int auto_increment ,
+    pname		varchar(100)  not null ,
+    pcontent	longtext ,
+    pprice		int unsigned default 0 not null ,	-- signed(기본값:음수사용 +-21억) / unsigned(음수사용X-음수만큼의메모리를 양수로 사용 0~42억정도 ) : 음수 사용여부
+    pstate		tinyint default 0 not null , -- [ 0 : 판매중(기본값) , 1:거래중 , 2:판매대기 3:판매완료 ]
+    pdate 		datetime default now() not null ,
+    plat		varchar(30) not null,
+    plng		varchar(30) not null,
+    mno			bigint ,
+    constraint product_pno_pk primary key( pno ) ,
+    constraint product_mno_fk foreign key( mno ) references member( no ) on delete cascade on update cascade
+);
+
+
+# 3. 제품 이미지
+drop table if exists productimg;
+create table productimg(
+	pimgno int auto_increment ,
+    pimg longtext ,
+    pno int ,
+    constraint productimg_pimgno_fk primary key ( pimgno ) ,
+    constraint productimg_pno_fk foreign key( pno ) references product( pno ) on delete cascade on update cascade
+);
+
 
