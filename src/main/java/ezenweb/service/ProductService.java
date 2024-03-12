@@ -4,6 +4,8 @@ import ezenweb.model.dao.ProductDao;
 import ezenweb.model.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,4 +33,11 @@ public class ProductService {
         System.out.println("ProductService.getProductList");
         return productDao.getProductList();
     }
+
+    // # 3. 제품 상세 출력
+    public ProductDto getProductView( int pno ){   System.out.println("ProductController.getProductList");
+        return productDao.getProductView( pno );
+    }
+
+
 }

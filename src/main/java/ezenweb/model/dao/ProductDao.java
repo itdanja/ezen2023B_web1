@@ -3,6 +3,7 @@ package ezenweb.model.dao;
 import ezenweb.model.dto.ProductDto;
 import org.springframework.stereotype.Component;
 
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,40 @@ public class ProductDao extends Dao {
         }catch (Exception e ){}
         return list;
     }
+
+    // # 3. 제품 상세 출력
+    public ProductDto getProductView( int pno ){
+        ProductDto productDto = new ProductDto();
+        try{
+            String sql = "select * from product where pno = "+pno;
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while ( rs.next() ){
+                // 빌더패턴 : 클래스명.Builder().필드명(값).필드명(값).build()
+                productDto = ProductDto.builder()
+                        .pno( rs.getInt("pno") )
+                        .pname( rs.getString("pname"))
+                        .pprice( rs.getInt("pprice"))
+                        .pstate( rs.getByte("pstate"))
+                        .plat( rs.getString("plat"))
+                        .plng( rs.getString("plng"))
+                        .pcontent( rs.getString("pcontent"))
+                        .build() ;
+                List<String> list = new ArrayList<>();
+
+                 String subSql = "select * from productimg where  pno = "+pno;
+                ps = conn.prepareStatement(subSql);
+                ResultSet rs2 = ps.executeQuery();
+                while ( rs2.next() ){
+                    list.add( rs2.getString("pimg"));
+                }
+                productDto.setPimg(list);
+            }
+        }catch (Exception e ){}
+        return productDto;
+    }
+
+
 }
 
 

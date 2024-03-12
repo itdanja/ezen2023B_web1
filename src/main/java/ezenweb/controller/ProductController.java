@@ -42,6 +42,13 @@ public class ProductController {
         return productService.getProductList();
     }
 
+    // # 3. 제품 상세 출력
+    @GetMapping("/view.do") // http://localhost/product/list.do
+    @ResponseBody
+    public ProductDto getProductView( int pno ){   System.out.println("ProductController.getProductList");
+        return productService.getProductView( pno );
+    }
+
     // ====================== 2. 화면 요청
     // # 1. 등록 페이지/화면/뷰 요청
     @GetMapping("/register")
