@@ -22,8 +22,13 @@ function onRegister(){
         data : productRegisterFormData ,
         processData : false ,
         contentType : false ,
-        success : (r)=>{
-            console.log( r );
+        success : (r)=>{  console.log( r );
+            if( r ){
+                alert('제품등록성공');
+                location.href="/product/list";
+            }else{
+                alert('제품등록실패');
+            }
         }
     }); // ajax end
 } // f end

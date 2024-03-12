@@ -3,18 +3,23 @@
     <div class="container">
         <h3> 제품 등록 </h3>
         <form class="productRegisterForm">
-            <h6> 제품명 </h6>      <input name="pname" type="text"/>
+            <h6> 제품명 </h6>
+            <input name="pname" type="text"/>
 
-            <h6> 제품가격 </h6>     <input name="pprice" type="text">
+            <h6> 제품가격 </h6>
+            <input name="pprice" type="text">
 
-            <h6> 제품내용 </h6>     <textarea name="pcontent"></textarea>
+            <h6> 제품내용 </h6>
+            <textarea name="pcontent"></textarea>
 
-            <h6> 제품이미지 </h6>  <input name="uploadFiles" type="file"  multiple>
+            <h6> 제품이미지 </h6>
+            <input name="uploadFiles" type="file"  multiple>
 
             <h6> 제품 거래 위치 </h6>
             <div id="map" style="width:400px;height:400px;"></div>
 
-            <button type="button" onclick="onRegister()">등록</button>
+            <button type="button"
+                    onclick="onRegister()">등록</button>
 
         </form>
 
