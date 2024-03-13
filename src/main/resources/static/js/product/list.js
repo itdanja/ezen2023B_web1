@@ -1,10 +1,12 @@
 
 // 클라이언트(브라우저) 위치 가져오기
-    // 1. navigator.geolocation.getCurrentPosition() : 현재 위치 정보 호출( JS )
+    // 1. navigator.geolocation.getCurrentPosition() : 현재 위치 정보 호출( JS ) 함수
 navigator.geolocation.getCurrentPosition( ( myLocation ) =>{
+
     console.log( myLocation );
-    console.log( myLocation.coords.latitude );  // 현재 위치
-    console.log( myLocation.coords.longitude );  // 현재 위치
+    console.log( myLocation.coords );
+    console.log( myLocation.coords.latitude );  // 현재 위치 위도
+    console.log( myLocation.coords.longitude );  // 현재 위치 경도
 
     // 카카오 지도 실행
     kakaoMapView( myLocation.coords.latitude  , myLocation.coords.longitude  );
@@ -12,6 +14,7 @@ navigator.geolocation.getCurrentPosition( ( myLocation ) =>{
 })
 
 function kakaoMapView( latitude , longitude ){
+
     // 1. 지도 객체
     var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
         center : new kakao.maps.LatLng( latitude, longitude ), // 지도의 중심좌표

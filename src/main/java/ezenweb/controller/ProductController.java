@@ -42,6 +42,25 @@ public class ProductController {
         return productService.getProductList();
     }
 
+    //3. 해당 제품의 찜하기 등록  // 언제실행: 로그인했고 찜하기버튼 클릭시  , 매개변수 : pno  , 리턴 : boolean(등록 성공/실패)
+    @GetMapping("/plike/write.do")
+    @ResponseBody
+    public boolean getPlikeWrite( int pno ) {
+        return productService.getPlikeWrite( pno  );
+    }
+    //4. 해당 제품의 찜하기 상태 출력 // 언제실행: 로그인했고 찜하기버튼 출력시   , 매개변수 : pno , 리턴 : boolean(등록 있다/없다)
+    @GetMapping("/plike/view.do")
+    @ResponseBody
+    public boolean getPlikeView( int pno ){
+        return productService.getPlikeView( pno );
+    }
+    //5 해당 제품의 찜하기 취소/삭제 // 언제실행: 로그인했고 찜하기버튼 클릭시  , 매개변수 : pno , 리턴 :  boolean(취소 성공/실패)
+    @GetMapping("/plike/delete.do")
+    @ResponseBody
+    public boolean getPlikeDelete( int pno ){
+        return productService.getPlikeDelete( pno );
+    }
+
     // ====================== 2. 화면 요청
     // # 1. 등록 페이지/화면/뷰 요청
     @GetMapping("/register")

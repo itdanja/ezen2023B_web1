@@ -104,6 +104,35 @@ create table productimg(
     constraint productimg_pno_fk foreign key (pno) references product(pno) on update cascade on delete cascade
 );
 
+# 3. 좋아요 테이블
+create table plike(
+	mno bigint,
+    pno int ,	-- pno 와 mno 가 일치했을때 삭제.
+    constraint plike_mno_fk foreign key(mno) references member(no) on update cascade on delete cascade,
+    constraint plike_pno_fk foreign key(pno) references product(pno) on update cascade on delete cascade
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
