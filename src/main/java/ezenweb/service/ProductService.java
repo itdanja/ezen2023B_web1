@@ -34,18 +34,34 @@ public class ProductService {
         return productDao.getProductList();
     }
     //3. 해당 제품의 찜하기 등록  // 언제실행: 로그인했고 찜하기버튼 클릭시  , 매개변수 : pno  , 리턴 : boolean(등록 성공/실패)
-    public boolean getPlikeWrite( int pno ){
-        return productDao.getPlikeWrite( pno );
+    public boolean getPlikeWrite( int pno , int mno ){
+        return productDao.getPlikeWrite( pno , mno);
     }
     //4. 해당 제품의 찜하기 상태 출력 // 언제실행: 로그인했고 찜하기버튼 출력시   , 매개변수 : pno , 리턴 : boolean(등록 있다/없다)
-    public boolean getPlikeView( int pno ){
-        return productDao.getPlikeView( pno );
+    public boolean getPlikeView( int pno , int mno ){
+        return productDao.getPlikeView( pno , mno );
     }
 
     //5 해당 제품의 찜하기 취소/삭제 // 언제실행: 로그인했고 찜하기버튼 클릭시  , 매개변수 : pno , 리턴 :  boolean(취소 성공/실패)
-    public boolean getPlikeDelete( int pno ){
-        return productDao.getPlikeDelete( pno );
+    public boolean getPlikeDelete( int pno , int mno ){
+        return productDao.getPlikeDelete( pno , mno );
     }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

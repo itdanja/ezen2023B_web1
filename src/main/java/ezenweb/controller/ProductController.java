@@ -7,10 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,22 +40,34 @@ public class ProductController {
     }
 
     //3. 해당 제품의 찜하기 등록  // 언제실행: 로그인했고 찜하기버튼 클릭시  , 매개변수 : pno  , 리턴 : boolean(등록 성공/실패)
-    @GetMapping("/plike/write.do")
+    @PostMapping("/plike.do")
     @ResponseBody
     public boolean getPlikeWrite( int pno ) {
-        return productService.getPlikeWrite( pno  );
+        Object object = request.getSession().getAttribute("loginDto");
+        if( object == null )return false;
+        int mno = memberService.doGetLoginInfo( (String)object ).getNo();
+
+        return productService.getPlikeWrite( pno ,mno  );
     }
     //4. 해당 제품의 찜하기 상태 출력 // 언제실행: 로그인했고 찜하기버튼 출력시   , 매개변수 : pno , 리턴 : boolean(등록 있다/없다)
-    @GetMapping("/plike/view.do")
+    @GetMapping("/plike.do")
     @ResponseBody
     public boolean getPlikeView( int pno ){
-        return productService.getPlikeView( pno );
+        Object object = request.getSession().getAttribute("loginDto");
+        if( object == null )return false;
+        int mno = memberService.doGetLoginInfo( (String)object ).getNo();
+
+        return productService.getPlikeView( pno,mno );
     }
     //5 해당 제품의 찜하기 취소/삭제 // 언제실행: 로그인했고 찜하기버튼 클릭시  , 매개변수 : pno , 리턴 :  boolean(취소 성공/실패)
-    @GetMapping("/plike/delete.do")
+    @DeleteMapping("/plike.do")
     @ResponseBody
     public boolean getPlikeDelete( int pno ){
-        return productService.getPlikeDelete( pno );
+        Object object = request.getSession().getAttribute("loginDto");
+        if( object == null )return false;
+        int mno = memberService.doGetLoginInfo( (String)object ).getNo();
+
+        return productService.getPlikeDelete( pno , mno );
     }
 
     // ====================== 2. 화면 요청
